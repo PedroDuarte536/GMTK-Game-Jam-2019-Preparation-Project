@@ -22,11 +22,12 @@ public class MouseActions : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         getMousePosition();
         getHeldObject();
         heldBattery();
+
     }
 
     /*
@@ -36,9 +37,7 @@ public class MouseActions : MonoBehaviour
     private void getHeldObject()
     {
 
-        batteryPos= GameObject.Find("Plug").transform.position;
-        //GameObject.FindGameObjectsWithTag("aa").transform.position;
-        Debug.Log("Plug Position at this spot is: " + batteryPos);
+        batteryPos = GameObject.Find("Plug").transform.position;
     }
     
     /*
@@ -46,20 +45,7 @@ public class MouseActions : MonoBehaviour
      */
     private void getMousePosition()
     {
-    
-     
         mousePos= Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Debug.Log("Mouse Position at this spot is: " + mousePos);
-        
-            //Older Code
-        /* mousePos = Input.mousePosition;
-        //if(Input.GetKeyDown(KeyCode.Mouse0))
-        //{
-            
-        //}
- 
-        //transform.position = Vector3.MoveTowards(transform.position, mousePos, Time.deltaTime * 5);
-        */
     }
 
     /*
@@ -68,16 +54,14 @@ public class MouseActions : MonoBehaviour
     */
     private void heldBattery()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (holdB || (Input.GetKey(KeyCode.Mouse0) && this.GetComponent<CircleCollider2D>().bounds.Contains(new Vector3(mousePos.x, mousePos.y, 0))))
         {
             holdB = true;
-            if (holdB == true)
-            {
-                this.gameObject.transform.localPosition = new Vector3(mousePos.x,mousePos.y,0);
-                Debug.Log("WORKING!!!!!!!!!!!!");
-            }
-            
-            
+            this.GetComponent<Rigidbody2D>().position = new Vector3(mousePos.x,mousePos.y,0);
+        }
+        if(Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            holdB = false;
         }
         
     }
