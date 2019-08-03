@@ -26,10 +26,10 @@ public class BatteryPhysics : MonoBehaviour
         line.SetPosition(1, new Vector2(transform.position.x, transform.position.y - 0.4f));
     }*/
 
-    
+
     private void updateChord()
     {
-        Vector3 endPosition = new Vector3(transform.position.x, transform.position.y-.27f, transform.position.z);
+        Vector3 endPosition = new Vector3(transform.position.x, transform.position.y - .27f, transform.position.z);
         line.SetPosition(0, cordAnchorPos);
         line.SetPosition(1, endPosition);
 
@@ -47,13 +47,13 @@ public class BatteryPhysics : MonoBehaviour
 
     public void checkBatteryMove()
     {
-        if(oxygenOutlet.GetComponent<Outlet>().enteredOutletSpace)
+        if (oxygenOutlet.GetComponent<Outlet>().enteredOutletSpace)
         {
             moveIntoBatteryPos(oxygenOutlet);
         }
     }
 
-    private void moveIntoBatteryPos();
+    private void moveIntoBatteryPos(GameObject movePoint) { }
 
 }
 

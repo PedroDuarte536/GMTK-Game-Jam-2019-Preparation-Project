@@ -20,21 +20,21 @@ public class ResourceSystem : MonoBehaviour
 
     private void Start()
     {
-        resource = maxResources * startingResources;
+        resource = startingResources;
         updateIndicator();
         gainingPower = false;
-        losingPower = false;
+        losingPower = true;
     }
     private void Update()
     {
         //starts losing power when there is no plug
-        if(!hasPlug() && !losingPower)
+        if(!hasPlug() && !losingPower && !broken)
         {
             losingPower = true;
             Invoke("loseResources", lossRate);
         }
         //begins gaining power when there is a plug
-        else if(!gainingPower)
+        else if(!gainingPower && !broken)
         {
             gainingPower = true;
             Invoke("gainResources", gainRate);
@@ -51,7 +51,7 @@ public class ResourceSystem : MonoBehaviour
     //updates the percentage indicator in the UI
     private void updateIndicator ()
     {
-        //percentageIndicator.text = resource.ToString();
+        percentageIndicator.text = resource.ToString();
     }
 
     //sets the state of the broken variable
