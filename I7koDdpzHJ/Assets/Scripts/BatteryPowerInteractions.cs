@@ -6,7 +6,7 @@ public class BatteryPowerInteractions : MonoBehaviour
 {
     //Power is the amount of power in the battery currently, maxpower is the amount the battery can hold, powerRechargeAmount is the amount of power the battery passivly recives per interval, 
     //powerRechargeRate how often power is recived, powerTransferAmount how much power is given up to whatever it is plugged into, percentMaxStart the percent of the max that the battery starts with
-    [SerializeField] private float power, maxPower, powerRechargeAmount, powerRechargeRate, powerTransferAmount, percentMaxStart;
+    [SerializeField] private int power, maxPower, powerRechargeAmount, powerRechargeRate, powerTransferAmount, percentMaxStart;
     //is the battery charging
     [SerializeField] private bool charging;
     //whatever object the battery is connected to
@@ -29,19 +29,19 @@ public class BatteryPowerInteractions : MonoBehaviour
     }
 
     //adds amount to the total power
-    private void changePower(float amount)
+    private void changePower(int amount)
     {
         power += amount;
     }
 
     //sets power to desired number
-    public void setPower(float amount)
+    public void setPower(int amount)
     {
         power = amount;
     }
     
     //returns power
-    public float getPower() { return power; }
+    public int getPower() { return power; }
 
     //returns what machine the plug is connected to
     public ResourceSystem getConnectedMachineSystem()
@@ -64,9 +64,9 @@ public class BatteryPowerInteractions : MonoBehaviour
     }
 
     //returns the drained power so whatever is draining it can take it
-    public float drainPower()
+    public int drainPower()
     {
-        if(power > 0.0f)
+        if(power > 0)
         {
             power -= powerTransferAmount;
             return powerTransferAmount;

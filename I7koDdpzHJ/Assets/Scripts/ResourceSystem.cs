@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ResourceSystem : MonoBehaviour
 {
     // resources is the amount of any given resource a machine has, maxResources is the machines max capacaity, lossAmount is amount lost per interval, lossRate is how often energy is lost, gainRate is how often energy is gained, starting resources is what percent of the max is started with
-    [SerializeField] private float resource, maxResources, lossAmount, lossRate, gainRate, startingResources;
+    [SerializeField] private int resource, maxResources, lossAmount, lossRate, gainRate, startingResources;
     //broken determines wether or not the machine is functioning or requires fixing, gainingPower and LosingPower are purly logical operators
     [SerializeField] private bool broken, gainingPower, losingPower, isBroken;
     //contains the script for the plug
@@ -14,10 +15,13 @@ public class ResourceSystem : MonoBehaviour
     public GameObject plug;
     [SerializeField] private Sprite brokenSprite, regularSprite;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    //the text that indicates the current amount in the UI
+    [SerializeField] private Text percentageIndicator;
 
     private void Start()
     {
         resource = maxResources * startingResources;
+        updateIndicator();
         gainingPower = false;
         losingPower = false;
     }
@@ -42,6 +46,12 @@ public class ResourceSystem : MonoBehaviour
         }
 
         setBreak(isBroken);
+    }
+
+    //updates the percentage indicator in the UI
+    private void updateIndicator ()
+    {
+        percentageIndicator.text = resource.ToString();
     }
 
     //sets the state of the broken variable
@@ -73,6 +83,7 @@ public class ResourceSystem : MonoBehaviour
             }
         }
         gainingPower = false;
+        updateIndicator();
     }
 
     //decreases the amount of resource a machine has and keeps it from going below 0
@@ -87,6 +98,7 @@ public class ResourceSystem : MonoBehaviour
             resource = 0;
         }
         losingPower = false;
+        updateIndicator();
     }
 
     //initializes pluginfo to the plugs script
@@ -101,7 +113,7 @@ public class ResourceSystem : MonoBehaviour
         return plug != null;
     }
 
-    public float getResources()
+    public int getResources()
     {
         return resource;
     }
