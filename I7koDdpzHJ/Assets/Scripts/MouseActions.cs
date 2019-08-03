@@ -12,13 +12,15 @@ public class MouseActions : MonoBehaviour
     //This variable should be the position of the mouse throughout the game
     [SerializeField] private Vector3 mousePos; 
     //This variable should be the position of the plug throughout the game
-    [SerializeField] private Vector3 batteryPos; 
+    [SerializeField] private Vector3 batteryPos;
+    [SerializeField] private GameObject cursor;
  
  
     // Start is called before the first frame update
     void Start()
     {
         //getMousePosition();
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -27,7 +29,12 @@ public class MouseActions : MonoBehaviour
         getMousePosition();
         getHeldObject();
         heldBattery();
+        setPointer();
+    }
 
+    private void setPointer()
+    {
+        cursor.GetComponent<Transform>().position = mousePos;
     }
 
     /*
@@ -45,7 +52,8 @@ public class MouseActions : MonoBehaviour
      */
     private void getMousePosition()
     {
-        mousePos= Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = new Vector3(mousePos.x, mousePos.y, 0);
     }
 
     /*
