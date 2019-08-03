@@ -7,11 +7,13 @@ public class ResourceSystem : MonoBehaviour
     // resources is the amount of any given resource a machine has, maxResources is the machines max capacaity, lossAmount is amount lost per interval, lossRate is how often energy is lost, gainRate is how often energy is gained, starting resources is what percent of the max is started with
     [SerializeField] private float resource, maxResources, lossAmount, lossRate, gainRate, startingResources;
     //broken determines wether or not the machine is functioning or requires fixing, gainingPower and LosingPower are purly logical operators
-    [SerializeField] private bool broken, gainingPower, losingPower;
+    [SerializeField] private bool broken, gainingPower, losingPower, isBroken;
     //contains the script for the plug
     [SerializeField] private BatteryPowerInteractions plugInfo;
     //contains the plug game object
-    [SerializeField] public GameObject plug;
+    public GameObject plug;
+    [SerializeField] private Sprite brokenSprite, regularSprite;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     private void Start()
     {
@@ -38,12 +40,22 @@ public class ResourceSystem : MonoBehaviour
         {
             plugIn();
         }
+
+        setBreak(isBroken);
     }
 
     //sets the state of the broken variable
     public void setBreak(bool isBroken)
     {
         broken = isBroken;
+        if(broken)
+        {
+            spriteRenderer.sprite = brokenSprite;
+        }
+        else
+        {
+            spriteRenderer.sprite = regularSprite;
+        }
     }
 
     //increases the amount of resource a machine has and keeps it from going above max

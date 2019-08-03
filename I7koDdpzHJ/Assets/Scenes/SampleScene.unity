@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 176510881}
   m_Layer: 0
   m_Name: Shield System
-  m_TagString: Untagged
+  m_TagString: Resource Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -281,8 +281,12 @@ MonoBehaviour:
   broken: 0
   gainingPower: 0
   losingPower: 0
+  isBroken: 0
   plugInfo: {fileID: 0}
   plug: {fileID: 0}
+  brokenSprite: {fileID: 21300000, guid: 1f24b8080bb13a4498a963cc673fd173, type: 3}
+  regularSprite: {fileID: 21300000, guid: a8f83b1d877ef5c4f8c1d1d0e4bdc447, type: 3}
+  spriteRenderer: {fileID: 176510882}
 --- !u!212 &176510882
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -345,7 +349,7 @@ GameObject:
   - component: {fileID: 507363138}
   m_Layer: 0
   m_Name: Computer System
-  m_TagString: Untagged
+  m_TagString: Resource Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -386,8 +390,12 @@ MonoBehaviour:
   broken: 0
   gainingPower: 0
   losingPower: 0
+  isBroken: 0
   plugInfo: {fileID: 0}
   plug: {fileID: 0}
+  brokenSprite: {fileID: 21300000, guid: f9bae9a19f577f74db008dbcdb2bd60c, type: 3}
+  regularSprite: {fileID: 21300000, guid: 4e4b0dd0af6cd244bbb657343828bf08, type: 3}
+  spriteRenderer: {fileID: 507363139}
 --- !u!212 &507363139
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -790,7 +798,7 @@ GameObject:
   - component: {fileID: 1476691474}
   m_Layer: 0
   m_Name: Oxygen System
-  m_TagString: Untagged
+  m_TagString: Resource Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -816,8 +824,12 @@ MonoBehaviour:
   broken: 0
   gainingPower: 0
   losingPower: 0
+  isBroken: 0
   plugInfo: {fileID: 0}
   plug: {fileID: 0}
+  brokenSprite: {fileID: 21300000, guid: 5f44face0b361994f937d8bb81c76dee, type: 3}
+  regularSprite: {fileID: 21300000, guid: 3a8f7121e3f84d34e8ca1c0caf9df0e0, type: 3}
+  spriteRenderer: {fileID: 1476691475}
 --- !u!212 &1476691475
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1140,8 +1152,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1679083138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.014094561, y: -2.7185712, z: 0}
-  m_LocalScale: {x: 0.25, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -1159,7 +1171,7 @@ GameObject:
   - component: {fileID: 1711151871}
   m_Layer: 0
   m_Name: Battery System
-  m_TagString: Untagged
+  m_TagString: Charging Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1173,20 +1185,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1711151870}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e5e6b2dba5a4b41a9900b52fde8404, type: 3}
+  m_Script: {fileID: 11500000, guid: b16f9f66cffb5284e9a58516413a4c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resource: 0
-  maxResources: 100
-  lossAmount: 1
-  lossRate: 5
-  gainRate: 1
-  startingResources: 0
-  broken: 0
-  gainingPower: 1
-  losingPower: 0
+  chargeRate: 0
+  charging: 0
   plugInfo: {fileID: 0}
-  plug: {fileID: 1958985599}
+  plug: {fileID: 0}
 --- !u!212 &1711151872
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1245,7 +1250,7 @@ Transform:
   m_GameObject: {fileID: 1711151870}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.5000001, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -1263,7 +1268,7 @@ GameObject:
   - component: {fileID: 1826514159}
   m_Layer: 0
   m_Name: Engine System
-  m_TagString: Untagged
+  m_TagString: Resource Station
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1304,8 +1309,12 @@ MonoBehaviour:
   broken: 0
   gainingPower: 0
   losingPower: 0
+  isBroken: 0
   plugInfo: {fileID: 0}
   plug: {fileID: 0}
+  brokenSprite: {fileID: 21300000, guid: 9b574756d9755f243a4387b8d9017ae5, type: 3}
+  regularSprite: {fileID: 21300000, guid: bafdf47b22e713c43852744a1804fc12, type: 3}
+  spriteRenderer: {fileID: 1826514160}
 --- !u!212 &1826514160
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1499,11 +1508,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: 0
   maxPower: 100
-  powerRechargeAmount: 0
+  powerRechargeAmount: 1
   powerRechargeRate: 0.5
-  powerTransferAmount: 0
-  percentMaxStart: 0
+  powerTransferAmount: 1
+  percentMaxStart: 0.5
   charging: 0
+  connectedTo: {fileID: 0}
 --- !u!4 &1958985601
 Transform:
   m_ObjectHideFlags: 0
