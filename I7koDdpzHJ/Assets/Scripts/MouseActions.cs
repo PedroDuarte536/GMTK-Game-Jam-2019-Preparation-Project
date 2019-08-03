@@ -13,7 +13,7 @@ public class MouseActions : MonoBehaviour
     [SerializeField] private Vector3 mousePos; 
     //This variable should be the position of the plug throughout the game
     [SerializeField] private Vector3 batteryPos;
-    [SerializeField] private GameObject cursor;
+    [SerializeField] private GameObject cursor, battery;
  
  
     // Start is called before the first frame update
@@ -35,6 +35,7 @@ public class MouseActions : MonoBehaviour
     private void setPointer()
     {
         cursor.GetComponent<Transform>().position = mousePos;
+        print("working");
     }
 
     /*
@@ -44,7 +45,7 @@ public class MouseActions : MonoBehaviour
     private void getHeldObject()
     {
 
-        batteryPos = GameObject.Find("Plug").transform.position;
+        batteryPos = battery.GetComponent<Transform>().position;
     }
     
     /*
@@ -65,7 +66,8 @@ public class MouseActions : MonoBehaviour
         if (holdB || Input.GetMouseButton(0) && this.GetComponent<CircleCollider2D>().bounds.Contains(new Vector3(mousePos.x, mousePos.y, 0)))
         {
             holdB = true;
-            this.GetComponent<Rigidbody2D>().position = new Vector3(mousePos.x,mousePos.y,0);
+            GetComponent<Rigidbody2D>().position = mousePos;
+            GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         }
         if(Input.GetMouseButtonUp(0))
         {
