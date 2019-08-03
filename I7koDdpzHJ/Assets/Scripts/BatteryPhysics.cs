@@ -21,7 +21,7 @@ public class BatteryPhysics : MonoBehaviour
     private void updateChord ()
     {
         line.SetPosition(0, cordAnchorPos);
-        line.SetPosition(1, transform.position);
+        line.SetPosition(1, new Vector2(transform.position.x, transform.position.y - 0.4f));
     }
 
     public Vector3 getBatteryPos()

@@ -44,10 +44,9 @@ public class BatteryPowerInteractions : MonoBehaviour
     public float getPower() { return power; }
 
     //returns what machine the plug is connected to
-    public ResourceSystem getConnectedMachine()
+    public ResourceSystem getConnectedMachineSystem()
     {
-        return new ResourceSystem();
-        return null;
+        return connectedTo.GetComponent<ResourceSystem>();
     }
 
     //charging the battery
