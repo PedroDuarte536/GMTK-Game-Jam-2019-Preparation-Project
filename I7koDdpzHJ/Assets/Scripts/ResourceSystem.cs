@@ -51,7 +51,7 @@ public class ResourceSystem : MonoBehaviour
     //updates the percentage indicator in the UI
     private void updateIndicator ()
     {
-        percentageIndicator.text = resource.ToString();
+        //percentageIndicator.text = resource.ToString();
     }
 
     //sets the state of the broken variable

@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Outlet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public bool enteredOutletSpace;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if(collision.gameObject.tag.Equals("Plug"))
+        {
+            enteredOutletSpace = true;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        
+        if (collision.gameObject.tag.Equals("Plug"))
+        {
+            enteredOutletSpace = false;
+        }
     }
 }
