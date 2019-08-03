@@ -4,8 +4,21 @@ using UnityEngine;
 
 public class BatteryPowerInteractions : MonoBehaviour
 {
-    [SerializeField] private float power, maxPower, powerRechargeRate, powerTransferRate;
+    [SerializeField] private float power, maxPower, powerRechargeAmount, powerRechargeRate, powerTransferRate;
     private GameObject connectedTo;
+
+    private void Start()
+    {
+        power = maxPower * 0.5f;
+    }
+
+    private void Update()
+    {
+        if(connectedTo.tag.Equals("BatteryStation"))
+        {
+            Invoke("charge", powerRechargeRate);
+        }
+    }
 
     private void changePower(float amount)
     {

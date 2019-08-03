@@ -4,10 +4,26 @@ using UnityEngine;
 
 public class ResourceSystem : MonoBehaviour
 {
-    [SerializeField] private float resource, maxResources, lossRate;
+    [SerializeField] private float resource, maxResources, lossAmount, lossRate, gainRate;
     [SerializeField] private bool broken;
     [SerializeField] private BatteryPowerInteractions plugInfo;
     [SerializeField] public GameObject plug;
+
+    private void Start()
+    {
+        resource = maxResources * 0.5f;
+    }
+    private void Update()
+    {
+        if(!hasPlug())
+        {
+            Invoke("loseResources", lossRate);
+        }
+        else
+        {
+            Invoke("gainResources", gainRate);
+        }
+    }
 
     public void setBreak(bool isBroken)
     {
@@ -16,13 +32,16 @@ public class ResourceSystem : MonoBehaviour
 
     public void gainResources()
     {
-        if (resource < maxResources)
+        if (hasPlug())
         {
-            resource += plugInfo.drainPower();
-        }
-        else
-        {
-            resource = maxResources;
+            if (resource < maxResources)
+            {
+                resource += plugInfo.drainPower();
+            }
+            else
+            {
+                resource = maxResources;
+            }
         }
     }
 
@@ -30,7 +49,7 @@ public class ResourceSystem : MonoBehaviour
     {
         if (resource > 0)
         {
-            resource -= lossRate;
+            resource -= lossAmount;
         }
         else
         {
