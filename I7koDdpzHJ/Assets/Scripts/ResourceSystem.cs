@@ -42,7 +42,7 @@ public class ResourceSystem : MonoBehaviour
         //if the plug object is attached the plug script is initaliezed on plugInfo
         if(hasPlug())
         {
-            plugIn();
+            getScriptComponent();
         }
 
         setBreak(isBroken);
@@ -102,7 +102,7 @@ public class ResourceSystem : MonoBehaviour
     }
 
     //initializes pluginfo to the plugs script
-    public void plugIn()
+    public void getScriptComponent()
     {
         plugInfo = plug.GetComponent<BatteryPowerInteractions>();
     }
@@ -111,6 +111,11 @@ public class ResourceSystem : MonoBehaviour
     public bool hasPlug()
     {
         return plug != null;
+    }
+
+    public void plugIn(GameObject battery)
+    {
+        plug = battery;
     }
 
     public int getResources()
