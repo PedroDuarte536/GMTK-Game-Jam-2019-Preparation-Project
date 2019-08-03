@@ -53,7 +53,10 @@ public class BatteryPhysics : MonoBehaviour
         }
     }
 
-    private void moveIntoBatteryPos();
+    private void moveIntoBatteryPos(GameObject outlet)
+    {
+        
+    }
 
 }
 
