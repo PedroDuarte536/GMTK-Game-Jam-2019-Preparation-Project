@@ -5,11 +5,10 @@ using UnityEngine;
 //This class handles the ship as it interacts with the game
 public class Ship : MonoBehaviour
 {
-    [SerializeField] private float shipHealth;
-
-    /*
-     * These variables will determine if the ship has the power or not
-     */
+    [SerializeField] private float shipHealth, lossIncrement;
+    [SerializeField] private GameObject oxygenSystem, batterySystem, computerSystem, shieldSystem, engineSystem;
+    private ResourceSystem oxygenInfo, batteryInfo, computerInfo, shieldInfo, engineInfo;
+    //These variables will determine if the ship has the power or not
     public bool oxygenOn, engineOn, computerOn, shieldOn;
 
 
@@ -18,7 +17,11 @@ public class Ship : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        shipHealth = shipHealth;
+        oxygenInfo = oxygenSystem.GetComponent<ResourceSystem>();
+        batteryInfo = batterySystem.GetComponent<ResourceSystem>();
+        computerInfo = computerSystem.GetComponent<ResourceSystem>();
+        shieldInfo = shieldSystem.GetComponent<ResourceSystem>();
+        engineInfo = engineSystem.GetComponent<ResourceSystem>();
         showHealth();
     }
 
@@ -35,26 +38,26 @@ public class Ship : MonoBehaviour
     private void systemsPowered()
     {
         //if the engine power fails
-        if (engineOn)
+        if (oxygenInfo.getResources() == 0.0f)
         {
             loseHealth();
         }
 
         //if the computer power fails
-        if (computerOn)
+        if (shieldInfo.getResources() == 0.0f)
         {
             loseHealth();
         }
 
         //if the oxygen power fails
-        if (oxygenOn)
+        if (computerInfo.getResources() == 0.0f)
         {
             oxygenOn = false;
             //Invoke("loseHealth");
         }
 
         //if the shield power fails
-        if (shieldOn)
+        if (engineInfo.getResources() == 0.0f)
         {
             loseHealth();
         }
@@ -66,7 +69,7 @@ public class Ship : MonoBehaviour
      */
     public void loseHealth()
     {
-        shipHealth = shipHealth - 1;
+        shipHealth -= lossIncrement;
     }
 
     /*
@@ -74,10 +77,6 @@ public class Ship : MonoBehaviour
      */
     public void showHealth()
     {
-
-
-
-
 
     }
 

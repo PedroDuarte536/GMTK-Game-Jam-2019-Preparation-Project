@@ -16,6 +16,8 @@ public class ResourceSystem : MonoBehaviour
     private void Start()
     {
         resource = maxResources * startingResources;
+        gainingPower = false;
+        losingPower = false;
     }
     private void Update()
     {
@@ -85,5 +87,10 @@ public class ResourceSystem : MonoBehaviour
     public bool hasPlug()
     {
         return plug != null;
+    }
+
+    public float getResources()
+    {
+        return resource;
     }
 }
