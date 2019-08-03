@@ -273,14 +273,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1476691473}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 298320df5e05d904dbe0df3f4b4c2389, type: 3}
+  m_Script: {fileID: 11500000, guid: f6e5e6b2dba5a4b41a9900b52fde8404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 0
-  maxPower: 0
-  powerRechargeAmount: 0
-  powerRechargeRate: 0
-  powerTransferRate: 0
+  resource: 0
+  maxResources: 100
+  lossAmount: 1
+  lossRate: 5
+  gainRate: 0
+  broken: 0
+  plugInfo: {fileID: 0}
+  plug: {fileID: 0}
 --- !u!212 &1476691475
 SpriteRenderer:
   m_ObjectHideFlags: 0
