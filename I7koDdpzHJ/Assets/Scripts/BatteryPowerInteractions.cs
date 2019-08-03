@@ -39,17 +39,15 @@ public class BatteryPowerInteractions : MonoBehaviour
     {
         if(power > 0.0f)
         {
-            
+            power -= powerTransferRate;
+            return powerTransferRate;
         }
+        return 0;
     }
 
     public bool batteryConnected()
     {
-        if(connectedTo != null)
-        {
-            return true;
-        }
-        return false;
+        return connectedTo != null;
     }
 
 }

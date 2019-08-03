@@ -4,15 +4,42 @@ using UnityEngine;
 
 public class ResourceSystem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private float resource, maxResources, lossRate;
+    [SerializeField] private bool broken;
+    [SerializeField] private BatteryPowerInteractions plugInfo;
+    [SerializeField] public GameObject plug;
+
+    public void setBreak(bool isBroken)
     {
-        
+        broken = isBroken;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void gainResources()
     {
-        
+        if (resource < maxResources)
+        {
+            resource += plugInfo.drainPower();
+        }
+        else
+        {
+            resource = maxResources;
+        }
+    }
+
+    public void loseResources()
+    {
+        if (resource > 0)
+        {
+            resource -= lossRate;
+        }
+        else
+        {
+            resource = 0;
+        }
+    }
+
+    public bool hasPlug()
+    {
+        return plug != null;
     }
 }
