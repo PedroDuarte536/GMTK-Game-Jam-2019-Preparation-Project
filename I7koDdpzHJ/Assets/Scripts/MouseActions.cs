@@ -11,7 +11,7 @@ public class MouseActions : MonoBehaviour
     
     //this boolean will tell the system if the mouse is holding an object or not
     [SerializeField] private bool holdB;
-    [SerializeField] private bool attachedOxygen, attachedComputer, attachedEngine, attachedShield;
+    [SerializeField] private bool attachedOxygen, attachedComputer, attachedEngine, attachedShield, attachedPower;
     
     public bool mouseRealeased;
     //This variable should be the position of the mouse throughout the game
@@ -35,6 +35,7 @@ public class MouseActions : MonoBehaviour
         attachedComputer = false;
         attachedEngine = false;
         attachedShield = false;
+        attachedPower = false;
     }
 
     // Update is called once per frame
@@ -102,37 +103,58 @@ public class MouseActions : MonoBehaviour
     }
 
 
+    /*
+     This function will tell the game if the plug is over something and then
+     will pass the terminal type to the game to manage
+     */
     private void OnTriggerEnter2D(Collider2D other)
     {
+        GameObject connectedTo2;
+        
         //If the plug is over the oxygen outlet
         if (other.gameObject.name == "Outlet-Oxygen")
         {
+            Debug.Log("Plugged into Oxygen");
             attachedOxygen = true;
             
+            other.transform.parent.gameObject.GetComponent<ResourceSystem>().plugIn();
+            
+
             battery.transform.position = new Vector3();
         }
         //If the plug is over the Computer outlet
         if (other.gameObject.name == "Outlet-Computer")
         {
+            Debug.Log("Plugged into Computer");
             attachedComputer = true;
         }
         //If the plug is over the Engine outlet
         if (other.gameObject.name == "Outlet-Engine")
         {
+            Debug.Log("Plugged into Engine");
             attachedEngine = true;
         }
         //If the plug is over the Shield outlet
         if (other.gameObject.name == "Outlet-Shield")
         {
+            Debug.Log("Plugged into Shield");
             attachedShield = true;
+        }
+        //If the plug is over the Power outlet
+        if (other.gameObject.name == "Outlet-Power")
+        {
+            Debug.Log("Plugged into Power");
+            attachedPower = true;
         }
         //Otherwise just ignore it
         else
         {
+            Debug.Log("Plugged into Nothing");
             attachedOxygen = false;
             attachedComputer = false;
             attachedEngine = false;
             attachedShield = false;
+            attachedPower = false;
         }
         
         throw new NotImplementedException();

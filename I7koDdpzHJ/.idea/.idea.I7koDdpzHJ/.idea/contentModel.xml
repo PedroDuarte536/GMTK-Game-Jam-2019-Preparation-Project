@@ -13,7 +13,6 @@
           <e p="GameManage.cs" t="Include" />
           <e p="MouseActions.cs" t="Include" />
           <e p="Outlet.cs" t="Include" />
-          <e p="Outlets.cs" t="Include" />
           <e p="PercentageDisplay.cs" t="Include" />
           <e p="ResourceSystem.cs" t="Include" />
           <e p="Ship.cs" t="Include" />
