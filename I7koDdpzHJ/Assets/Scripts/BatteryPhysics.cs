@@ -20,8 +20,9 @@ public class BatteryPhysics : MonoBehaviour
 
     private void updateChord()
     {
+        Vector3 endPosition = new Vector3(transform.position.x, transform.position.y-.4f, transform.position.z);
         line.SetPosition(0, cordAnchorPos);
-        line.SetPosition(1, transform.position);
+        line.SetPosition(1, endPosition);
     }
 
     public Vector3 getBatteryPos()
