@@ -49,7 +49,8 @@ public class Ship : MonoBehaviour
         //if the oxygen power fails
         if (oxygenOn)
         {
-            loseHealth();
+            oxygenOn = false;
+            //Invoke("loseHealth");
         }
 
         //if the shield power fails
