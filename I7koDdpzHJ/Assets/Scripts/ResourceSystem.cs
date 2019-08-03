@@ -5,7 +5,7 @@ using UnityEngine;
 public class ResourceSystem : MonoBehaviour
 {
     [SerializeField] private float resource, maxResources, lossAmount, lossRate, gainRate;
-    [SerializeField] private bool broken;
+    [SerializeField] private bool broken, gainingPower, losingPower;
     [SerializeField] private BatteryPowerInteractions plugInfo;
     [SerializeField] public GameObject plug;
 
@@ -15,13 +15,20 @@ public class ResourceSystem : MonoBehaviour
     }
     private void Update()
     {
-        if(!hasPlug())
+        if(!hasPlug() && !losingPower)
         {
+            losingPower = true;
             Invoke("loseResources", lossRate);
         }
-        else
+        else if(!gainingPower)
         {
+            gainingPower = true;
             Invoke("gainResources", gainRate);
+        }
+
+        if(hasPlug())
+        {
+            plugIn();
         }
     }
 
@@ -43,6 +50,7 @@ public class ResourceSystem : MonoBehaviour
                 resource = maxResources;
             }
         }
+        gainingPower = false;
     }
 
     public void loseResources()
@@ -55,6 +63,12 @@ public class ResourceSystem : MonoBehaviour
         {
             resource = 0;
         }
+        losingPower = false;
+    }
+
+    public void plugIn()
+    {
+        plugInfo = plug.GetComponent<BatteryPowerInteractions>();
     }
 
     public bool hasPlug()

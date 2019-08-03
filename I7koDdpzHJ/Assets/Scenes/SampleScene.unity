@@ -280,10 +280,12 @@ MonoBehaviour:
   maxResources: 100
   lossAmount: 1
   lossRate: 5
-  gainRate: 0
+  gainRate: 1
   broken: 0
+  gainingPower: 1
+  losingPower: 0
   plugInfo: {fileID: 0}
-  plug: {fileID: 0}
+  plug: {fileID: 1958985599}
 --- !u!212 &1476691475
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -377,10 +379,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 0
-  maxPower: 0
+  maxPower: 100
   powerRechargeAmount: 0
-  powerRechargeRate: 0
-  powerTransferRate: 0
+  powerRechargeRate: 0.5
+  powerTransferRate: 1
+  charging: 0
 --- !u!4 &1958985601
 Transform:
   m_ObjectHideFlags: 0
