@@ -109,54 +109,9 @@ public class MouseActions : MonoBehaviour
      */
     private void OnTriggerEnter2D(Collider2D other)
     {
-        GameObject connectedTo2;
-        
-        //If the plug is over the oxygen outlet
-        if (other.gameObject.name == "Outlet-Oxygen")
+        if (other.tag.Equals("Outlet"))
         {
-            Debug.Log("Plugged into Oxygen");
-            attachedOxygen = true;
-            
-            other.transform.parent.gameObject.GetComponent<ResourceSystem>().plugIn();
-            
-
-            battery.transform.position = new Vector3();
+            other.transform.parent.gameObject.GetComponent<ResourceSystem>().plugIn(battery);
         }
-        //If the plug is over the Computer outlet
-        if (other.gameObject.name == "Outlet-Computer")
-        {
-            Debug.Log("Plugged into Computer");
-            attachedComputer = true;
-        }
-        //If the plug is over the Engine outlet
-        if (other.gameObject.name == "Outlet-Engine")
-        {
-            Debug.Log("Plugged into Engine");
-            attachedEngine = true;
-        }
-        //If the plug is over the Shield outlet
-        if (other.gameObject.name == "Outlet-Shield")
-        {
-            Debug.Log("Plugged into Shield");
-            attachedShield = true;
-        }
-        //If the plug is over the Power outlet
-        if (other.gameObject.name == "Outlet-Power")
-        {
-            Debug.Log("Plugged into Power");
-            attachedPower = true;
-        }
-        //Otherwise just ignore it
-        else
-        {
-            Debug.Log("Plugged into Nothing");
-            attachedOxygen = false;
-            attachedComputer = false;
-            attachedEngine = false;
-            attachedShield = false;
-            attachedPower = false;
-        }
-        
-        throw new NotImplementedException();
     }
 }

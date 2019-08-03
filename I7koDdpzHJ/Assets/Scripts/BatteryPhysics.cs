@@ -6,7 +6,7 @@ public class BatteryPhysics : MonoBehaviour
 {
     public Vector3 cordAnchorPos;
     private LineRenderer line;
-    [SerializeField] private GameObject oxygenOutlet, engineOutlet, shieldOutlet, computerOutlet;
+    [SerializeField] private GameObject oxygenOutlet, engineOutlet, shieldOutlet, computerOutlet, plug;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,13 +45,15 @@ public class BatteryPhysics : MonoBehaviour
         transform.position = newPosition;
     }
 
-    public void checkBatteryMove()
+    public void checkBatteryPlugInMove()
     {
         if (oxygenOutlet.GetComponent<Outlet>().enteredOutletSpace)
         {
             moveIntoBatteryPos(oxygenOutlet);
         }
     }
+
+
 
     private void moveIntoBatteryPos(GameObject movePoint) { }
 
