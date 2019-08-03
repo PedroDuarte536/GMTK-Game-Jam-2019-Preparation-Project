@@ -62,16 +62,15 @@ public class MouseActions : MonoBehaviour
     */
     private void heldBattery()
     {
-        if (holdB || (Input.GetKey(KeyCode.Mouse0) && this.GetComponent<CircleCollider2D>().bounds.Contains(new Vector3(mousePos.x, mousePos.y, 0))))
+        if (holdB || Input.GetMouseButton(0) && this.GetComponent<CircleCollider2D>().bounds.Contains(new Vector3(mousePos.x, mousePos.y, 0)))
         {
             holdB = true;
             this.GetComponent<Rigidbody2D>().position = new Vector3(mousePos.x,mousePos.y,0);
         }
-        if(Input.GetKeyUp(KeyCode.Mouse0))
+        if(Input.GetMouseButtonUp(0))
         {
             holdB = false;
         }
-        
     }
 
 }
