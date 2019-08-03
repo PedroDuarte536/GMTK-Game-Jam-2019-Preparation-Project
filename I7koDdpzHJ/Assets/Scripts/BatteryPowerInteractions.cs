@@ -10,7 +10,7 @@ public class BatteryPowerInteractions : MonoBehaviour
     //is the battery charging
     [SerializeField] private bool charging;
     //whatever object the battery is connected to
-    private GameObject connectedTo;
+    public GameObject connectedTo;
 
     private void Start()
     {
@@ -20,7 +20,7 @@ public class BatteryPowerInteractions : MonoBehaviour
     private void Update()
     {
         //determines when recharge
-        if(connectedTo != null && connectedTo.tag.Equals("BatteryStation") && !charging)
+        if(connectedTo != null && connectedTo.tag.Equals("Charging Station") && !charging)
         {
             charging = true;
             Invoke("charge", powerRechargeRate);
@@ -57,6 +57,7 @@ public class BatteryPowerInteractions : MonoBehaviour
         {
             power += powerRechargeRate;
             charging = false;
+            
             return true;
         }
         charging = false;
