@@ -10,10 +10,7 @@ public class Ship : MonoBehaviour
     /*
      * These variables will determine if the ship has the power or not
      */
-    public bool oxygenVar;
-    public bool engineVar;
-    public bool computerVar;
-    public bool shieldVar;
+    public bool oxygenOn, engineOn, computerOn, shieldOn;
 
 
 
@@ -21,7 +18,7 @@ public class Ship : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        shipHealth = 10;
+        shipHealth = shipHealth;
         showHealth();
     }
 
@@ -38,25 +35,25 @@ public class Ship : MonoBehaviour
     private void systemsPowered()
     {
         //if the engine power fails
-        if (engineVar == true)
+        if (engineOn)
         {
             loseHealth();
         }
 
         //if the computer power fails
-        if (computerVar == true)
+        if (computerOn)
         {
             loseHealth();
         }
 
         //if the oxygen power fails
-        if (oxygenVar == true)
+        if (oxygenOn)
         {
             loseHealth();
         }
 
         //if the shield power fails
-        if (shieldVar == true)
+        if (shieldOn)
         {
             loseHealth();
         }
