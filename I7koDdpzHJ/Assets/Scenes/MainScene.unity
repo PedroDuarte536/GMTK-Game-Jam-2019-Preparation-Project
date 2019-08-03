@@ -277,7 +277,7 @@ MonoBehaviour:
   lossAmount: 1
   lossRate: 5
   gainRate: 1
-  startingResources: 0
+  startingResources: 100
   broken: 0
   gainingPower: 0
   losingPower: 0
@@ -532,7 +532,7 @@ MonoBehaviour:
   lossAmount: 1
   lossRate: 5
   gainRate: 1
-  startingResources: 0
+  startingResources: 100
   broken: 0
   gainingPower: 0
   losingPower: 0
@@ -1174,7 +1174,7 @@ MonoBehaviour:
   lossAmount: 1
   lossRate: 5
   gainRate: 1
-  startingResources: 0
+  startingResources: 100
   broken: 0
   gainingPower: 0
   losingPower: 0
@@ -1797,7 +1797,7 @@ MonoBehaviour:
   lossAmount: 1
   lossRate: 5
   gainRate: 1
-  startingResources: 0
+  startingResources: 100
   broken: 0
   gainingPower: 0
   losingPower: 0
@@ -2102,11 +2102,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 0
-  maxPower: 100
-  powerRechargeAmount: 1
-  powerRechargeRate: 0.5
-  powerTransferAmount: 1
-  percentMaxStart: 0.5
+  maxPower: 0
+  powerRechargeAmount: 0
+  powerRechargeRate: 0
+  powerTransferAmount: 0
+  percentMaxStart: 0
   charging: 0
   connectedTo: {fileID: 0}
 --- !u!4 &1958985601

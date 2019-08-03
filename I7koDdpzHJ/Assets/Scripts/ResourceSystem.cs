@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ResourceSystem : MonoBehaviour
 {
     // resources is the amount of any given resource a machine has, maxResources is the machines max capacaity, lossAmount is amount lost per interval, lossRate is how often energy is lost, gainRate is how often energy is gained, starting resources is what percent of the max is started with
-    [SerializeField] private float resource, maxResources, lossAmount, lossRate, gainRate, startingResources;
+    [SerializeField] private int resource, maxResources, lossAmount, lossRate, gainRate, startingResources;
     //broken determines wether or not the machine is functioning or requires fixing, gainingPower and LosingPower are purly logical operators
     [SerializeField] private bool broken, gainingPower, losingPower, isBroken;
     //contains the script for the plug
@@ -113,7 +113,7 @@ public class ResourceSystem : MonoBehaviour
         return plug != null;
     }
 
-    public float getResources()
+    public int getResources()
     {
         return resource;
     }
