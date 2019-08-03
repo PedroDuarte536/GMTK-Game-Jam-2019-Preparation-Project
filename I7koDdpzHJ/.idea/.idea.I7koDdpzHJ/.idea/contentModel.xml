@@ -11,6 +11,7 @@
           <e p="GameManage.cs" t="Include" />
           <e p="MouseActions.cs" t="Include" />
           <e p="ResourceSystem.cs" t="Include" />
+          <e p="Ship.cs" t="Include" />
         </e>
       </e>
       <e p="I7koDdpzHJ.sln" t="IncludeFlat" />
