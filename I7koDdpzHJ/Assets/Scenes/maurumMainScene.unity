@@ -1266,6 +1266,7 @@ GameObject:
   - component: {fileID: 966920654}
   - component: {fileID: 966920656}
   - component: {fileID: 966920657}
+  - component: {fileID: 966920658}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -1419,6 +1420,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &966920658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966920653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174abdd0fe0a8124fa31953f27346872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1115983333
 GameObject:
   m_ObjectHideFlags: 0
@@ -2751,7 +2764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16f9f66cffb5284e9a58516413a4c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargeRate: 0
+  chargeRate: 4
   charging: 0
   plugInfo: {fileID: 0}
   plug: {fileID: 1958985599}
@@ -3327,8 +3340,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: 0
   maxPower: 100
-  powerRechargeAmount: 3
-  powerRechargeRate: 1
+  powerRechargeAmount: 1
+  powerRechargeRate: 7
   powerTransferAmount: 1
   startAmount: 50
   charging: 0
