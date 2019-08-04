@@ -24,7 +24,6 @@ public class PercentageDisplay : MonoBehaviour
     private void updateDisplay()
     {
         float newWidth = maxWidth * ((float)percentage / 100);
-        Debug.Log(newWidth);
         Vector2 newSize = new Vector2(newWidth, displaySR.size.y);
         displaySR.size = newSize;
     }
