@@ -4035,7 +4035,7 @@ PrefabInstance:
     - target: {fileID: 4267151177742897586, guid: 2fe15045708cc3b4c97f8b95f7b729dd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.84375
       objectReference: {fileID: 0}
     - target: {fileID: 4267151177742897586, guid: 2fe15045708cc3b4c97f8b95f7b729dd,
         type: 3}
@@ -4051,6 +4051,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Health Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4267151177742897589, guid: 2fe15045708cc3b4c97f8b95f7b729dd,
+        type: 3}
+      propertyPath: percentage
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fe15045708cc3b4c97f8b95f7b729dd, type: 3}
