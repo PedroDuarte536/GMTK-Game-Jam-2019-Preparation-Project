@@ -7,7 +7,9 @@ public class BatteryPhysics : MonoBehaviour
     public Vector3 cordAnchorPos;
     private LineRenderer line;
     public bool inOutletSpace;
-    [SerializeField] private GameObject curOutletParent;
+    [SerializeField] private AudioClip hittingSurface, pluggingIn, beginCharging;
+        [SerializeField] private AudioSource batteryPhysicsSounds;
+    [SerializeField] private GameObject curOutletParent, soundManager;
     // Start is called before the first frame update
     void Start()
     {

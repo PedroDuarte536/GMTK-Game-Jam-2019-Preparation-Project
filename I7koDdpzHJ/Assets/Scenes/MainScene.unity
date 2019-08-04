@@ -975,6 +975,7 @@ GameObject:
   m_Component:
   - component: {fileID: 966920655}
   - component: {fileID: 966920654}
+  - component: {fileID: 966920656}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -1009,6 +1010,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &966920656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966920653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31d9cc62f7570984a850769859bd46e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  systems:
+  - {fileID: 1476691473}
+  - {fileID: 1826514157}
+  - {fileID: 176510879}
+  - {fileID: 507363136}
+  breakChance: 2
 --- !u!1 &1115983333
 GameObject:
   m_ObjectHideFlags: 0
@@ -2788,7 +2807,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cordAnchorPos: {x: 0, y: -2.5, z: 0}
   inOutletSpace: 0
+  hittingSurface: {fileID: 0}
+  pluggingIn: {fileID: 0}
+  beginCharging: {fileID: 0}
+  batteryPhysicsSounds: {fileID: 0}
   curOutletParent: {fileID: 0}
+  soundManager: {fileID: 61412991}
 --- !u!120 &1958985607
 LineRenderer:
   m_ObjectHideFlags: 0

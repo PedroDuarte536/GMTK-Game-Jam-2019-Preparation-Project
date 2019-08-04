@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ResourceSystem : MonoBehaviour
 {
     // resources is the amount of any given resource a machine has, maxResources is the machines max capacaity, lossAmount is amount lost per interval, lossRate is how often energy is lost, gainRate is how often energy is gained, starting resources is what percent of the max is started with
-    [SerializeField] private int resource, maxResources, lossAmount, lossRate, gainRate, startingResources;
+    [SerializeField] private int resource, maxResources, lossAmount, lossRate, gainRate, startingResources, machineFixTime;
     //broken determines wether or not the machine is functioning or requires fixing, gainingPower and LosingPower are purly logical operators
     [SerializeField] private bool broken, gainingPower, losingPower, isBroken;
     //contains the script for the plug
@@ -24,11 +24,13 @@ public class ResourceSystem : MonoBehaviour
         updateIndicator();
         gainingPower = false;
         losingPower = true;
+        isBroken = false;
+
     }
     private void Update()
     {
         //starts losing power when there is no plug
-        if(!hasPlug() && losingPower)
+        if(!hasPlug() && losingPower || hasPlug() && broken && losingPower)
         {
             losingPower = false;
             Invoke("loseResources", lossRate);
@@ -45,7 +47,7 @@ public class ResourceSystem : MonoBehaviour
             getScriptComponent();
         }
 
-        setBreak(isBroken);
+        fixMachine();
     }
 
     //updates the percentage indicator in the UI
@@ -65,8 +67,11 @@ public class ResourceSystem : MonoBehaviour
         else
         {
             spriteRenderer.sprite = regularSprite;
+            isBroken = false;
         }
     }
+
+    public bool getBroken() { return broken; }
 
     //increases the amount of resource a machine has and keeps it from going above max
     public void gainResources()
@@ -128,5 +133,20 @@ public class ResourceSystem : MonoBehaviour
     public int getResources()
     {
         return resource;
+    }
+
+    private void setMachineFix()
+    {
+        setBreak(false);
+    }
+
+    private void fixMachine()
+    {
+        if (!isBroken && broken && Input.GetMouseButtonDown(0) && this.GetComponent<Collider2D>().bounds.Contains(new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y)))
+        {
+            isBroken = true;
+            print("kinda working");
+            Invoke("setMachineFix", machineFixTime);
+        }
     }
 }

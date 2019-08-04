@@ -74,6 +74,7 @@ public class MouseActions : MonoBehaviour
         mousePos = new Vector3(mousePos.x, mousePos.y, 0);
     }
 
+
     /*
      This function will determine whether or not the battery is being
     held by the mouse or if it is somewhere on screen
