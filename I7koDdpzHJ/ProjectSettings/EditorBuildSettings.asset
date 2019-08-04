@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/MainSceneMaurum.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/maurumMainScene.unity
+    guid: e3631ffe5b7710d4a8e7d2063fbec878
+  - enabled: 1
+    path: Assets/Scenes/TItleScreen.unity
+    guid: a67ce7d9f4a29674a98069526fdb750e
   m_configObjects: {}

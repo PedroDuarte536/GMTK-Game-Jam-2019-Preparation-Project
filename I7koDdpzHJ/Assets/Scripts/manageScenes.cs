@@ -1,18 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class manageScenes : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        
+        if(checkMouseClickPlay())
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private bool checkMouseClickPlay()
     {
-        
+        if(Input.GetMouseButtonDown(0) && this.GetComponent<Collider2D>().bounds.Contains(new Vector2 (Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y)))
+        {
+            return true;
+        }
+        return false;
     }
 }
