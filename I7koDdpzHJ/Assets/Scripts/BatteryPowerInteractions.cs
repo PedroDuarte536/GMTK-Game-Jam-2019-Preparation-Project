@@ -13,9 +13,15 @@ public class BatteryPowerInteractions : MonoBehaviour
     //whatever object the battery is connected to
     public GameObject connectedTo;
 
+    //the green display in the center
+    private PercentageDisplay powerDisplay;
+
     private void Start()
     {
         power = startAmount;
+
+        powerDisplay = FindObjectOfType<PercentageDisplay>();
+        powerDisplay.setPercentage(power);
     }
 
     private void Update()
@@ -33,12 +39,14 @@ public class BatteryPowerInteractions : MonoBehaviour
     private void changePower(int amount)
     {
         power += amount;
+        powerDisplay.setPercentage(power);
     }
 
     //sets power to desired number
     public void setPower(int amount)
     {
         power = amount;
+        powerDisplay.setPercentage(power);
     }
     
     //returns power
@@ -56,6 +64,7 @@ public class BatteryPowerInteractions : MonoBehaviour
         if (power < maxPower)
         {
             power += powerRechargeRate;
+            powerDisplay.setPercentage(power);
             charging = false;
             
             return true;
@@ -70,6 +79,7 @@ public class BatteryPowerInteractions : MonoBehaviour
         if(power > 0)
         {
             power -= powerTransferAmount;
+            powerDisplay.setPercentage(power);
             return powerTransferAmount;
         }
         return 0;
