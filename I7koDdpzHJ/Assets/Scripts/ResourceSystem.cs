@@ -88,11 +88,12 @@ public class ResourceSystem : MonoBehaviour
         if(broken)
         {
             spriteRenderer.sprite = brokenSprite;
-            updateSound(fixMachineSound);
+            
         }
         else
         {
             spriteRenderer.sprite = regularSprite;
+            
 
         }
     }
@@ -175,6 +176,8 @@ public class ResourceSystem : MonoBehaviour
         if (broken && Input.GetMouseButtonDown(0) && this.GetComponent<Collider2D>().bounds.Contains(MouseActions.mousePos))
         {
             isBroken = true;
+            updateSound(fixMachineSound);
+            print("printing");
             Invoke("setMachineFix", machineFixTime);
         }
     }

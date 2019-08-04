@@ -111,9 +111,9 @@ public class Ship : MonoBehaviour
     {
 
         Vector3 check = shipMovement.transform.position;
-        Vector3 end = planet.transform.position;
-        Debug.Log("Position 1: " + check);
-        Debug.Log("Position 2: " + end);
+        //Vector3 end = planet.transform.position;
+        //Debug.Log("Position 1: " + check);
+        //Debug.Log("Position 2: " + end);
         if (check.x < 5.00)
         {
 
