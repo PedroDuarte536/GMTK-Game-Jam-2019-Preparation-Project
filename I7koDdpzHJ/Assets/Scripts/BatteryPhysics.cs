@@ -91,15 +91,15 @@ public class BatteryPhysics : MonoBehaviour
             curOutletParent = collision.transform.parent.gameObject;
         }
     }
-
-    private void OnTriggerExit2D(Collision2D collision)
+    
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Outlet"))
         {
             inOutletSpace = false;
             curOutletParent = null;
+            print("wwww");
         }
     }
-
 }
 
