@@ -189,7 +189,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 301
   m_Sprite: {fileID: 21300000, guid: 0681f2ef315289145bb2b8c2db43b09c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -417,7 +417,7 @@ MonoBehaviour:
   plugInfo: {fileID: 0}
   soundManager: {fileID: 176510884}
   lowResource: {fileID: 8300000, guid: 4421552a52c3db84ea0b66cd58dccd56, type: 3}
-  fixMachineSound: {fileID: 0}
+  fixMachineSound: {fileID: 8300000, guid: 397793d3ba9efe74b9429770576d164f, type: 3}
   plug: {fileID: 0}
   brokenSprite: {fileID: 21300000, guid: 1f24b8080bb13a4498a963cc673fd173, type: 3}
   regularSprite: {fileID: 21300000, guid: a8f83b1d877ef5c4f8c1d1d0e4bdc447, type: 3}
@@ -460,7 +460,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 301
   m_Sprite: {fileID: 21300000, guid: a8f83b1d877ef5c4f8c1d1d0e4bdc447, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -901,7 +901,7 @@ MonoBehaviour:
   plugInfo: {fileID: 0}
   soundManager: {fileID: 507363141}
   lowResource: {fileID: 8300000, guid: 4421552a52c3db84ea0b66cd58dccd56, type: 3}
-  fixMachineSound: {fileID: 0}
+  fixMachineSound: {fileID: 8300000, guid: 397793d3ba9efe74b9429770576d164f, type: 3}
   plug: {fileID: 0}
   brokenSprite: {fileID: 21300000, guid: f9bae9a19f577f74db008dbcdb2bd60c, type: 3}
   regularSprite: {fileID: 21300000, guid: 4e4b0dd0af6cd244bbb657343828bf08, type: 3}
@@ -2049,7 +2049,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 301
   m_Sprite: {fileID: 21300000, guid: 0681f2ef315289145bb2b8c2db43b09c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2134,7 +2134,7 @@ MonoBehaviour:
   plugInfo: {fileID: 0}
   soundManager: {fileID: 1476691478}
   lowResource: {fileID: 8300000, guid: 4421552a52c3db84ea0b66cd58dccd56, type: 3}
-  fixMachineSound: {fileID: 0}
+  fixMachineSound: {fileID: 8300000, guid: 397793d3ba9efe74b9429770576d164f, type: 3}
   plug: {fileID: 0}
   brokenSprite: {fileID: 21300000, guid: 5f44face0b361994f937d8bb81c76dee, type: 3}
   regularSprite: {fileID: 21300000, guid: 3a8f7121e3f84d34e8ca1c0caf9df0e0, type: 3}
@@ -2435,6 +2435,7 @@ MonoBehaviour:
   moveTime: 0
   timeToMove: 0
   shipMovement: {fileID: 0}
+  planet: {fileID: 0}
   minimumTime: 2
   maximumTime: 3
   target: {fileID: 323913035}
@@ -2805,7 +2806,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 301
   m_Sprite: {fileID: 21300000, guid: a793617fb3f4763468129c4af9f137fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2901,7 +2902,7 @@ MonoBehaviour:
   plugInfo: {fileID: 0}
   soundManager: {fileID: 1826514162}
   lowResource: {fileID: 8300000, guid: 4421552a52c3db84ea0b66cd58dccd56, type: 3}
-  fixMachineSound: {fileID: 0}
+  fixMachineSound: {fileID: 8300000, guid: 397793d3ba9efe74b9429770576d164f, type: 3}
   plug: {fileID: 0}
   brokenSprite: {fileID: 21300000, guid: bafdf47b22e713c43852744a1804fc12, type: 3}
   regularSprite: {fileID: 21300000, guid: 9b574756d9755f243a4387b8d9017ae5, type: 3}
@@ -2944,7 +2945,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 301
   m_Sprite: {fileID: 21300000, guid: 9b574756d9755f243a4387b8d9017ae5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3340,8 +3341,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: 0
   maxPower: 100
-  powerRechargeAmount: 1
-  powerRechargeRate: 7
+  powerRechargeAmount: 5
+  powerRechargeRate: 1
   powerTransferAmount: 1
   startAmount: 50
   charging: 0
