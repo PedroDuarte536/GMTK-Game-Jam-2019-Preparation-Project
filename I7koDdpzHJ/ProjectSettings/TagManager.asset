@@ -10,6 +10,7 @@ TagManager:
   - Outlet
   - Tracker Ship
   - playButton
+  - Power Bar
   layers:
   - Default
   - TransparentFX

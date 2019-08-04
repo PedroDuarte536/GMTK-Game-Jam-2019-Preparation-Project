@@ -662,6 +662,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51847ffc65b47ac4d930bf4e04f27e8c, type: 3}
+--- !u!1 &323913034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 323913035}
+  m_Layer: 0
+  m_Name: Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &323913035
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323913034}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.541, y: 0, z: 0}
+  m_LocalScale: {x: 0.14285713, y: 0.14285713, z: 1}
+  m_Children: []
+  m_Father: {fileID: 664704710}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &326244057
 GameObject:
   m_ObjectHideFlags: 0
@@ -1205,7 +1235,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.374, y: 2.95, z: 0}
   m_LocalScale: {x: 7, y: 7, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 323913035}
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2390,7 +2421,7 @@ MonoBehaviour:
   shipMovement: {fileID: 0}
   minimumTime: 2
   maximumTime: 3
-  target: {fileID: 0}
+  target: {fileID: 323913035}
 --- !u!1 &1593310204
 GameObject:
   m_ObjectHideFlags: 0
@@ -3426,14 +3457,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9fbf312d23b26b45a14e985eca2d93c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cordAnchorPos: {x: 0, y: -2.5, z: 0}
-  line: {fileID: 0}
-  inOutletSpace: 0
-  allowPlay: 0
-  hittingSurface: {fileID: 0}
-  pluggingIn: {fileID: 8300000, guid: 7c94b80f9b7eafc4abe80966a40cfc7f, type: 3}
-  soundManager: {fileID: 1958985608}
-  curOutletParent: {fileID: 0}
 --- !u!120 &1958985607
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -3639,7 +3662,7 @@ GameObject:
   - component: {fileID: 2016496020}
   m_Layer: 0
   m_Name: plugbar
-  m_TagString: Untagged
+  m_TagString: Power Bar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
