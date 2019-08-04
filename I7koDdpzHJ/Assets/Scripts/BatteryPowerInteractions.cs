@@ -59,18 +59,15 @@ public class BatteryPowerInteractions : MonoBehaviour
     }
 
     //charging the battery
-    public bool charge()
+    public void charge()
     {
         if (power < maxPower)
         {
             power += powerRechargeRate;
             powerDisplay.setPercentage(power);
             charging = false;
-            
-            return true;
         }
         charging = false;
-        return false;
     }
 
     //returns the drained power so whatever is draining it can take it

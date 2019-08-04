@@ -8,7 +8,12 @@ public class manageScenes : MonoBehaviour
     {
         if(checkMouseClickPlay())
         {
+            SceneManager.LoadScene(1);
+        }
+        if(Input.GetKeyDown(KeyCode.R))
+        {
             SceneManager.LoadScene(0);
+            Cursor.visible = true;
         }
     }
 
