@@ -26,7 +26,6 @@ public class BatteryRechargeSystem : MonoBehaviour
 
     public void removePlug()
     {
-        plug = null;
         plugInfo = null;
 
     }
