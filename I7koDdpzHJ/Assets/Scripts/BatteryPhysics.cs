@@ -7,6 +7,7 @@ public class BatteryPhysics : MonoBehaviour
     public Vector3 cordAnchorPos;
     private LineRenderer line;
     public bool inOutletSpace;
+    private GameObject curOutlet;
     [SerializeField] private GameObject curOutletParent;
     // Start is called before the first frame update
     void Start()
@@ -75,6 +76,7 @@ public class BatteryPhysics : MonoBehaviour
 
     private void lockBatteryPos()
     {
+        transform.position = curOutlet.GetComponent<Outlet>().pluggedPos;
         this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
@@ -87,6 +89,7 @@ public class BatteryPhysics : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Outlet"))
         {
+            curOutlet = collision.gameObject;
             inOutletSpace = true;
             curOutletParent = collision.transform.parent.gameObject;
         }

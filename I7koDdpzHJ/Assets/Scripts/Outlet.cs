@@ -4,6 +4,5 @@ using UnityEngine;
 
 public class Outlet : MonoBehaviour
 {
-    
-
+    public Vector3 pluggedPos;
 }
