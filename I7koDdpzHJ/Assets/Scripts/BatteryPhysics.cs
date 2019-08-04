@@ -10,6 +10,7 @@ public class BatteryPhysics : MonoBehaviour
     [SerializeField] private AudioClip hittingSurface, pluggingIn;
     [SerializeField] private AudioSource soundManager;
     [SerializeField] private GameObject curOutletParent;
+    private GameObject curOutlet;
     // Start is called before the first frame update
     void Start()
     {
@@ -110,6 +111,7 @@ public class BatteryPhysics : MonoBehaviour
 
     private void lockBatteryPos()
     {
+        transform.position = curOutlet.GetComponent<Outlet>().pluggedPos;
         this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
@@ -134,6 +136,7 @@ public class BatteryPhysics : MonoBehaviour
         {
             inOutletSpace = true;
             curOutletParent = collision.transform.parent.gameObject;
+            curOutlet = collision.gameObject;
         }
     }
 
