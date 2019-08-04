@@ -92,6 +92,7 @@ public class BatteryPhysics : MonoBehaviour
         }
     }
     
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Outlet"))
@@ -101,5 +102,6 @@ public class BatteryPhysics : MonoBehaviour
             print("wwww");
         }
     }
+
 }
 
