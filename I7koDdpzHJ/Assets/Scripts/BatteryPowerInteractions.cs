@@ -20,7 +20,7 @@ public class BatteryPowerInteractions : MonoBehaviour
     {
         power = startAmount;
 
-        powerDisplay = FindObjectOfType<PercentageDisplay>();
+        powerDisplay = GameObject.FindGameObjectWithTag("Power Bar").GetComponent<PercentageDisplay>();
         powerDisplay.setPercentage(power);
     }
 
