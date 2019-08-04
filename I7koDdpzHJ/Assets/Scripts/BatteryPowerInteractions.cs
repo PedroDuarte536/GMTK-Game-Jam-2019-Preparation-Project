@@ -63,7 +63,7 @@ public class BatteryPowerInteractions : MonoBehaviour
     {
         if (power < maxPower)
         {
-            power += powerRechargeRate;
+            power += powerRechargeAmount;
             powerDisplay.setPercentage(power);
             charging = false;
         }

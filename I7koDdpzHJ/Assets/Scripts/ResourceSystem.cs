@@ -51,20 +51,19 @@ public class ResourceSystem : MonoBehaviour
         }
 
         fixMachine();
-        updateSound();
     }
 
-    private void updateSound()
+    private void updateSound(AudioClip clip)
     {
         if (allowPlay)
         {
-            if (resource == 10)
-            {
-                soundManager.clip = lowResource;
-                StartCoroutine(playSound());
-                allowPlay = false;
-            }
+
+            soundManager.clip = clip;
+            StartCoroutine(playSound());
+            allowPlay = false;
+
         }
+
     }
 
     private IEnumerator playSound()
@@ -89,10 +88,12 @@ public class ResourceSystem : MonoBehaviour
         if(broken)
         {
             spriteRenderer.sprite = brokenSprite;
+            updateSound(fixMachineSound);
         }
         else
         {
             spriteRenderer.sprite = regularSprite;
+
         }
     }
 
@@ -129,6 +130,10 @@ public class ResourceSystem : MonoBehaviour
         }
         losingPower = true;
         updateIndicator();
+        if(resource < 5)
+        {
+            updateSound(lowResource);
+        }
     }
 
     //initializes pluginfo to the plugs script
