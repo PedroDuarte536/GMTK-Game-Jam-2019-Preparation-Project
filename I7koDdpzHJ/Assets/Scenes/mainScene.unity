@@ -408,7 +408,7 @@ MonoBehaviour:
   lossRate: 1
   gainRate: 1
   startingResources: 50
-  machineFixTime: 3
+  machineFixTime: 4
   broken: 0
   gainingPower: 0
   losingPower: 0
@@ -902,7 +902,7 @@ MonoBehaviour:
   lossRate: 1
   gainRate: 1
   startingResources: 50
-  machineFixTime: 3
+  machineFixTime: 4
   broken: 0
   gainingPower: 0
   losingPower: 0
@@ -2194,7 +2194,7 @@ MonoBehaviour:
   lossRate: 1
   gainRate: 1
   startingResources: 50
-  machineFixTime: 3
+  machineFixTime: 4
   broken: 0
   gainingPower: 0
   losingPower: 0
@@ -2989,7 +2989,7 @@ MonoBehaviour:
   lossRate: 1
   gainRate: 1
   startingResources: 50
-  machineFixTime: 3
+  machineFixTime: 4
   broken: 0
   gainingPower: 0
   losingPower: 0

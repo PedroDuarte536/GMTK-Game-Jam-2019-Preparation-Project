@@ -12,6 +12,10 @@ public class manageScenes : MonoBehaviour
         if(checkMouseClickPlay())
         {
             SceneManager.LoadScene(connectToWhichScene);
+            if(connectToWhichScene != 1)
+            {
+                Cursor.visible = true;
+            }
         }
         if(Input.GetKeyDown(KeyCode.R))
         {
