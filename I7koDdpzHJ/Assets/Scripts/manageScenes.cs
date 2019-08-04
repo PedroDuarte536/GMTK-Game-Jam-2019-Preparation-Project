@@ -4,11 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class manageScenes : MonoBehaviour
 {
+
+    public int connectToWhichScene;
+    public GameObject ship;
     private void Update()
     {
-        if(!SceneManager.GetActiveScene().name.Equals(SceneManager.GetSceneByBuildIndex(1).name) && checkMouseClickPlay())
+        if(checkMouseClickPlay())
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(connectToWhichScene);
         }
         if(Input.GetKeyDown(KeyCode.R))
         {
@@ -26,8 +29,11 @@ public class manageScenes : MonoBehaviour
         return false;
     }
 
-    private bool checkEndGame()
+    private void checkEndGame()
     {
-        return true;
+        if(ship != null && ship.GetComponent<Ship>().shipHealth == 0)
+        {
+            SceneManager.LoadScene(3);
+        }
     }
 }
