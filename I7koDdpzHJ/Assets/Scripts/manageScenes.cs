@@ -20,4 +20,9 @@ public class manageScenes : MonoBehaviour
         }
         return false;
     }
+
+    private bool checkEndGame()
+    {
+        return true;
+    }
 }
