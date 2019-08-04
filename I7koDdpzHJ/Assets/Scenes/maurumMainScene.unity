@@ -3530,7 +3530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a4dfbdc88772240af02c74c0267c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cordAnchorPos: {x: 0, y: -2.4, z: -1}
+  cordAnchorPos: {x: 0, y: -2.4, z: 0.5}
   inOutletSpace: 0
   allowPlay: 0
   pluggedIn: 0
