@@ -6,7 +6,8 @@ public class BatteryPhysics : MonoBehaviour
 {
     public Vector3 cordAnchorPos;
     private LineRenderer line;
-    [SerializeField] private GameObject oxygenOutlet, engineOutlet, shieldOutlet, computerOutlet, plug;
+    public bool inOutletSpace;
+    [SerializeField] private GameObject curOutletParent;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,8 @@ public class BatteryPhysics : MonoBehaviour
     void Update()
     {
         updateChord();
+        tryBeginBatteryPlug();
+        tryBeginBatteryLeave();
     }
 
     /*
@@ -45,17 +48,58 @@ public class BatteryPhysics : MonoBehaviour
         transform.position = newPosition;
     }
 
-    public void checkBatteryPlugInMove()
+    public void tryBeginBatteryPlug()
     {
-        if (oxygenOutlet.GetComponent<Outlet>().enteredOutletSpace)
+        if(inOutletSpace && Input.GetMouseButtonUp(0))
         {
-            moveIntoBatteryPos(oxygenOutlet);
+            lockBatteryPos();
+            connectToMachine();
         }
     }
 
+    public void tryBeginBatteryLeave()
+    {
+        if (curOutletParent != null && curOutletParent.GetComponent<ResourceSystem>().hasPlug() && this.GetComponent<MouseActions>().holdingPlug)
+        {
+            unlockBatteryPos();
+            curOutletParent.GetComponent<ResourceSystem>().removePlug();
+            
+        }
+    }
 
+    private void unlockBatteryPos()
+    {
+        this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+        this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+    }
 
-    private void moveIntoBatteryPos(GameObject movePoint) { }
+    private void lockBatteryPos()
+    {
+        this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+    }
+
+    private void connectToMachine()
+    {
+        curOutletParent.GetComponent<ResourceSystem>().plugIn(this.gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Outlet"))
+        {
+            inOutletSpace = true;
+            curOutletParent = collision.transform.parent.gameObject;
+        }
+    }
+
+    private void OnTriggerExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Outlet"))
+        {
+            inOutletSpace = false;
+            curOutletParent = null;
+        }
+    }
 
 }
 

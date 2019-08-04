@@ -28,9 +28,9 @@ public class ResourceSystem : MonoBehaviour
     private void Update()
     {
         //starts losing power when there is no plug
-        if(!hasPlug() && !losingPower && !broken)
+        if(!hasPlug() && losingPower)
         {
-            losingPower = true;
+            losingPower = false;
             Invoke("loseResources", lossRate);
         }
         //begins gaining power when there is a plug
@@ -97,7 +97,7 @@ public class ResourceSystem : MonoBehaviour
         {
             resource = 0;
         }
-        losingPower = false;
+        losingPower = true;
         updateIndicator();
     }
 
@@ -116,6 +116,13 @@ public class ResourceSystem : MonoBehaviour
     public void plugIn(GameObject battery)
     {
         plug = battery;
+    }
+
+    public void removePlug()
+    {
+        plug = null;
+        plugInfo = null;
+
     }
 
     public int getResources()

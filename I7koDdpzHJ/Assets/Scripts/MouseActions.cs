@@ -13,14 +13,13 @@ public class MouseActions : MonoBehaviour
     [SerializeField] private bool holdB;
     [SerializeField] private bool attachedOxygen, attachedComputer, attachedEngine, attachedShield, attachedPower;
     
-    public bool mouseRealeased;
+    public bool mouseRealeased, holdingPlug;
     //This variable should be the position of the mouse throughout the game
     [SerializeField] private Vector3 mousePos; 
     //This variable should be the position of the plug throughout the game
     [SerializeField] private Vector3 batteryPos;
     [SerializeField] private GameObject cursor, battery;
     [SerializeField] private GameObject oxygen, computer, shield, engine, recharge, outlet;
-    [SerializeField] private Collision2D collider;
     
  
  
@@ -29,7 +28,6 @@ public class MouseActions : MonoBehaviour
     {
         //getMousePosition();
         Cursor.visible = false;
-        collider = GetComponent<Collision2D>();
         //the variables to attach the plug to the terminals
         attachedOxygen = false;
         attachedComputer = false;
@@ -88,6 +86,7 @@ public class MouseActions : MonoBehaviour
             holdB = true;
             GetComponent<Rigidbody2D>().position = mousePos;
             GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            holdingPlug = true;
         }
         if(Input.GetMouseButtonUp(0))
         {
@@ -96,22 +95,11 @@ public class MouseActions : MonoBehaviour
             //updating the plug's position
             Vector3 newBatteryPos = new Vector3(mousePos.x,mousePos.y,0 );
             battery.transform.position = newBatteryPos;
-            
-       
-
-        }
-    }
+            holdingPlug = false;
 
 
-    /*
-     This function will tell the game if the plug is over something and then
-     will pass the terminal type to the game to manage
-     */
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag.Equals("Outlet"))
-        {
-            other.transform.parent.gameObject.GetComponent<ResourceSystem>().plugIn(battery);
+
+
         }
     }
 }
