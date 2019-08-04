@@ -737,7 +737,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 184.6, y: -61.3}
+  m_AnchoredPosition: {x: 181.1, y: -50.7}
   m_SizeDelta: {x: 40, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &326244059
@@ -876,7 +876,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 507363136}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.86, y: -1.2, z: 0}
+  m_LocalPosition: {x: -3.76, y: -1.01, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children:
   - {fileID: 1451995559}
@@ -1928,7 +1928,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -199.9, y: -39.4}
+  m_AnchoredPosition: {x: -193.5, y: -30.2}
   m_SizeDelta: {x: 40, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1434471765
@@ -2934,7 +2934,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1826514157}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.86, y: -1.2, z: 0}
+  m_LocalPosition: {x: 3.76, y: -1.01, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children:
   - {fileID: 1346928954}
@@ -3410,7 +3410,7 @@ MonoBehaviour:
   maxPower: 100
   powerRechargeAmount: 5
   powerRechargeRate: 1
-  powerTransferAmount: 1
+  powerTransferAmount: 3
   startAmount: 50
   charging: 0
   connectedTo: {fileID: 0}
@@ -4035,7 +4035,7 @@ PrefabInstance:
     - target: {fileID: 4267151177742897586, guid: 2fe15045708cc3b4c97f8b95f7b729dd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.84375
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4267151177742897586, guid: 2fe15045708cc3b4c97f8b95f7b729dd,
         type: 3}
