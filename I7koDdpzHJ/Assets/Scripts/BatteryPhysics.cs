@@ -76,6 +76,7 @@ public class BatteryPhysics : MonoBehaviour
     private void lockBatteryPos()
     {
         this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        print("hhh");
     }
 
     private void connectToMachine()
@@ -98,8 +99,7 @@ public class BatteryPhysics : MonoBehaviour
         if (collision.gameObject.tag.Equals("Outlet"))
         {
             inOutletSpace = false;
-            curOutletParent = null;
-            print("wwww");
+            curOutletParent = null; 
         }
     }
 
