@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 //This class handles the ship as it interacts with the game
 public class Ship : MonoBehaviour
 {
-    [SerializeField] private float shipHealth, lossIncrement;
+    [SerializeField] private int shipHealth, lossIncrement;
     [SerializeField] private GameObject oxygenSystem, batterySystem, computerSystem, shieldSystem, engineSystem;
     private ResourceSystem oxygenInfo, batteryInfo, computerInfo, shieldInfo, engineInfo;
     //These variables will determine if the ship has the power or not
@@ -24,10 +24,15 @@ public class Ship : MonoBehaviour
     public float maximumTime = 1f;
     public Transform target;
 
+    //health display
+    private PercentageDisplay healthDisplay;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        healthDisplay = GameObject.FindGameObjectWithTag("Health Bar").GetComponent<PercentageDisplay>();
+
         oxygenInfo = oxygenSystem.GetComponent<ResourceSystem>();
         batteryInfo = batterySystem.GetComponent<ResourceSystem>();
         computerInfo = computerSystem.GetComponent<ResourceSystem>();
@@ -101,7 +106,7 @@ public class Ship : MonoBehaviour
      */
     public void showHealth()
     {
-
+        healthDisplay.setPercentage(shipHealth);
     }
 
     /*
