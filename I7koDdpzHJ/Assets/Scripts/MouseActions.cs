@@ -92,14 +92,7 @@ public class MouseActions : MonoBehaviour
         {
             mouseRealeased = true;
             holdB = false;
-            //updating the plug's position
-            Vector3 newBatteryPos = new Vector3(mousePos.x,mousePos.y,0 );
-            battery.transform.position = newBatteryPos;
             holdingPlug = false;
-
-
-
-
         }
     }
 }
