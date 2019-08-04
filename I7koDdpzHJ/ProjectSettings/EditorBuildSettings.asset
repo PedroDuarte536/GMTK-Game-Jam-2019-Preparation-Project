@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/TItleScreen.unity
     guid: a67ce7d9f4a29674a98069526fdb750e
   - enabled: 1
-    path: Assets/Scenes/maurumMainScene.unity
+    path: Assets/Scenes/mainScene.unity
     guid: e3631ffe5b7710d4a8e7d2063fbec878
   - enabled: 1
     path: Assets/Scenes/WinScreen.unity

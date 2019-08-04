@@ -21,7 +21,7 @@ public class randomBreacking : MonoBehaviour
         if (Random.value < breakChance && !selectedSystem.GetComponent<ResourceSystem>().getBroken())
         {
             selectedSystem.GetComponent<ResourceSystem>().setBreak(true);
-            if(Random.value < .5)
+            if(Random.value < breakChance)
             {
                 updateSound(gasRelease);
             }

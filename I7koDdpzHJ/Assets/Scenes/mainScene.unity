@@ -382,7 +382,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 176510879}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.51, y: 1.27, z: 1}
+  m_LocalPosition: {x: 2.51, y: 1.27, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children:
   - {fileID: 1956344621}
@@ -408,7 +408,7 @@ MonoBehaviour:
   lossRate: 1
   gainRate: 1
   startingResources: 50
-  machineFixTime: 4
+  machineFixTime: 3
   broken: 0
   gainingPower: 0
   losingPower: 0
@@ -876,7 +876,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 507363136}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.76, y: -1.01, z: 1}
+  m_LocalPosition: {x: -3.76, y: -1.01, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children:
   - {fileID: 1451995559}
@@ -902,7 +902,7 @@ MonoBehaviour:
   lossRate: 1
   gainRate: 1
   startingResources: 50
-  machineFixTime: 4
+  machineFixTime: 3
   broken: 0
   gainingPower: 0
   losingPower: 0
@@ -1277,6 +1277,7 @@ GameObject:
   - component: {fileID: 966920656}
   - component: {fileID: 966920657}
   - component: {fileID: 966920658}
+  - component: {fileID: 966920659}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -1305,7 +1306,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966920653}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -12.92, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1328,7 +1329,7 @@ MonoBehaviour:
   - {fileID: 1826514157}
   - {fileID: 176510879}
   - {fileID: 507363136}
-  breakChance: 0.5
+  breakChance: 0.333
   timeBeforeStartBreaking: 5
   BreakChanceInterval: 5
   gasRelease: {fileID: 8300000, guid: 5fa3818a9c328ca41b06499d753dfba5, type: 3}
@@ -1443,7 +1444,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   connectToWhichScene: 0
-  ship: {fileID: 0}
+  ship: {fileID: 1539855370}
+--- !u!61 &966920659
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966920653}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1115983333
 GameObject:
   m_ObjectHideFlags: 0
@@ -2167,7 +2194,7 @@ MonoBehaviour:
   lossRate: 1
   gainRate: 1
   startingResources: 50
-  machineFixTime: 4
+  machineFixTime: 3
   broken: 0
   gainingPower: 0
   losingPower: 0
@@ -2239,7 +2266,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1476691473}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.57, y: 1.26, z: 1}
+  m_LocalPosition: {x: -2.57, y: 1.26, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children:
   - {fileID: 48519525}
@@ -2478,7 +2505,7 @@ MonoBehaviour:
   timeToMove: 0
   shipMovement: {fileID: 664704708}
   planet: {fileID: 323913034}
-  minimumTime: 2
+  minimumTime: 1
   maximumTime: 3
   target: {fileID: 323913035}
 --- !u!1 &1593310204
@@ -2869,7 +2896,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1711151870}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.007, y: 1.471, z: 1}
+  m_LocalPosition: {x: -0.007, y: 1.471, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children:
   - {fileID: 763814528}
@@ -2936,7 +2963,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1826514157}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.76, y: -1.01, z: 1}
+  m_LocalPosition: {x: 3.76, y: -1.01, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children:
   - {fileID: 1346928954}
@@ -2962,7 +2989,7 @@ MonoBehaviour:
   lossRate: 1
   gainRate: 1
   startingResources: 50
-  machineFixTime: 4
+  machineFixTime: 3
   broken: 0
   gainingPower: 0
   losingPower: 0
@@ -3410,7 +3437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: 0
   maxPower: 100
-  powerRechargeAmount: 5
+  powerRechargeAmount: 10
   powerRechargeRate: 1
   powerTransferAmount: 3
   startAmount: 50

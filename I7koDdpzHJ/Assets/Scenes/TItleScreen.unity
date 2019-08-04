@@ -214,6 +214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 174abdd0fe0a8124fa31953f27346872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  connectToWhichScene: 1
+  ship: {fileID: 0}
 --- !u!61 &59466409
 BoxCollider2D:
   m_ObjectHideFlags: 0
