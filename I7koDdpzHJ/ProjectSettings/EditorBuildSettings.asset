@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/maurumMainScene.unity
     guid: e3631ffe5b7710d4a8e7d2063fbec878
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: 5fa9bf7cb2bcd2c4685e69d40e525c6d
+  - enabled: 1
+    path: Assets/Scenes/Lose.unity
+    guid: 0407ea961cb2c9b4e83ee95d6a62197d
   m_configObjects: {}

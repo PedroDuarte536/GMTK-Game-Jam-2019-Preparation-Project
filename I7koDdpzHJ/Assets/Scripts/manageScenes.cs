@@ -18,6 +18,7 @@ public class manageScenes : MonoBehaviour
             SceneManager.LoadScene(0);
             Cursor.visible = true;
         }
+        checkEndGame();
     }
 
     private bool checkMouseClickPlay()
