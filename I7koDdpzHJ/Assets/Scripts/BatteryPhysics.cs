@@ -6,7 +6,7 @@ public class BatteryPhysics : MonoBehaviour
 {
     public Vector3 cordAnchorPos;
     private LineRenderer line;
-    public bool inOutletSpace, allowPlay;
+    public bool inOutletSpace, allowPlay, pluggedIn;
     [SerializeField] private AudioClip hittingSurface, pluggingIn;
     [SerializeField] private AudioSource soundManager;
     [SerializeField] private GameObject curOutletParent;
@@ -38,6 +38,7 @@ public class BatteryPhysics : MonoBehaviour
         soundManager.Stop();
         soundManager.clip = null;
         allowPlay = true;
+        
     }
 
     /*
@@ -68,7 +69,7 @@ public class BatteryPhysics : MonoBehaviour
 
     public void tryBeginBatteryPlug()
     {
-        if (inOutletSpace && Input.GetMouseButtonUp(0))
+        if (!pluggedIn && inOutletSpace && Input.GetMouseButtonUp(0))
         {
             lockBatteryPos();
             connectToMachine();
@@ -84,6 +85,7 @@ public class BatteryPhysics : MonoBehaviour
             {
                 unlockBatteryPos();
                 curOutletParent.GetComponent<BatteryRechargeSystem>().removePlug();
+                pluggedIn = false;
 
             }
         }
@@ -93,9 +95,11 @@ public class BatteryPhysics : MonoBehaviour
             {
                 unlockBatteryPos();
                 curOutletParent.GetComponent<ResourceSystem>().removePlug();
+                pluggedIn = false;
 
             }
         }
+        
     }
 
     private void unlockBatteryPos()
@@ -120,7 +124,7 @@ public class BatteryPhysics : MonoBehaviour
             curOutletParent.GetComponent<ResourceSystem>().plugIn(this.gameObject);
         }
         GetComponent<BatteryPowerInteractions>().connectedTo = curOutletParent;
-
+        pluggedIn = true;
 
     }
 
