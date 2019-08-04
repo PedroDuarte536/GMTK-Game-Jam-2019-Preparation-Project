@@ -661,6 +661,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7650904050250074020, guid: 51847ffc65b47ac4d930bf4e04f27e8c,
+        type: 3}
+      propertyPath: pluggedPos.x
+      value: -3.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 7650904050250074020, guid: 51847ffc65b47ac4d930bf4e04f27e8c,
+        type: 3}
+      propertyPath: pluggedPos.y
+      value: -2.82
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51847ffc65b47ac4d930bf4e04f27e8c, type: 3}
 --- !u!1 &323913034
@@ -1690,6 +1700,16 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: -0.68
       objectReference: {fileID: 0}
+    - target: {fileID: 7650904050250074020, guid: 51847ffc65b47ac4d930bf4e04f27e8c,
+        type: 3}
+      propertyPath: pluggedPos.x
+      value: 2.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 7650904050250074020, guid: 51847ffc65b47ac4d930bf4e04f27e8c,
+        type: 3}
+      propertyPath: pluggedPos.y
+      value: -0.35
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51847ffc65b47ac4d930bf4e04f27e8c, type: 3}
 --- !u!4 &1247050431 stripped
@@ -1813,6 +1833,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7650904050250074020, guid: 51847ffc65b47ac4d930bf4e04f27e8c,
+        type: 3}
+      propertyPath: pluggedPos.y
+      value: -0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 7650904050250074020, guid: 51847ffc65b47ac4d930bf4e04f27e8c,
+        type: 3}
+      propertyPath: pluggedPos.x
+      value: -2.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51847ffc65b47ac4d930bf4e04f27e8c, type: 3}
@@ -1977,6 +2007,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Offset.y
       value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7650904050250074020, guid: 51847ffc65b47ac4d930bf4e04f27e8c,
+        type: 3}
+      propertyPath: pluggedPos.x
+      value: -0.007
+      objectReference: {fileID: 0}
+    - target: {fileID: 7650904050250074020, guid: 51847ffc65b47ac4d930bf4e04f27e8c,
+        type: 3}
+      propertyPath: pluggedPos.y
+      value: 0.121
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51847ffc65b47ac4d930bf4e04f27e8c, type: 3}
@@ -3517,7 +3557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a4dfbdc88772240af02c74c0267c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cordAnchorPos: {x: 0, y: -2.4, z: -1}
+  cordAnchorPos: {x: 0, y: -2.4, z: 0.5}
   inOutletSpace: 0
   allowPlay: 0
   pluggedIn: 0
@@ -3892,6 +3932,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Offset.x
       value: -0.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 7650904050250074020, guid: 51847ffc65b47ac4d930bf4e04f27e8c,
+        type: 3}
+      propertyPath: pluggedPos.x
+      value: 3.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 7650904050250074020, guid: 51847ffc65b47ac4d930bf4e04f27e8c,
+        type: 3}
+      propertyPath: pluggedPos.y
+      value: -2.82
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51847ffc65b47ac4d930bf4e04f27e8c, type: 3}
