@@ -3454,9 +3454,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1958985599}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9fbf312d23b26b45a14e985eca2d93c, type: 3}
+  m_Script: {fileID: 11500000, guid: 41a4dfbdc88772240af02c74c0267c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cordAnchorPos: {x: 0, y: 0, z: 0}
+  inOutletSpace: 0
+  allowPlay: 0
+  hittingSurface: {fileID: 0}
+  pluggingIn: {fileID: 8300000, guid: 7c94b80f9b7eafc4abe80966a40cfc7f, type: 3}
+  soundManager: {fileID: 1958985608}
+  curOutletParent: {fileID: 0}
 --- !u!120 &1958985607
 LineRenderer:
   m_ObjectHideFlags: 0
