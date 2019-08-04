@@ -13,7 +13,7 @@ public class ResourceSystem : MonoBehaviour
     [SerializeField] private BatteryPowerInteractions plugInfo;
     //contains the plug game object
     [SerializeField] private AudioSource soundManager;
-    [SerializeField] private AudioClip lowResource;
+    [SerializeField] private AudioClip lowResource, fixMachineSound;
     public GameObject plug;
     [SerializeField] private Sprite brokenSprite, regularSprite;
     [SerializeField] private SpriteRenderer spriteRenderer;
