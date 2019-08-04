@@ -8,10 +8,12 @@ public class ResourceSystem : MonoBehaviour
     // resources is the amount of any given resource a machine has, maxResources is the machines max capacaity, lossAmount is amount lost per interval, lossRate is how often energy is lost, gainRate is how often energy is gained, starting resources is what percent of the max is started with
     [SerializeField] private int resource, maxResources, lossAmount, lossRate, gainRate, startingResources, machineFixTime;
     //broken determines wether or not the machine is functioning or requires fixing, gainingPower and LosingPower are purly logical operators
-    [SerializeField] private bool broken, gainingPower, losingPower, isBroken;
+    [SerializeField] private bool broken, gainingPower, losingPower, isBroken, allowPlay;
     //contains the script for the plug
     [SerializeField] private BatteryPowerInteractions plugInfo;
     //contains the plug game object
+    [SerializeField] private AudioSource soundManager;
+    [SerializeField] private AudioClip lowResource;
     public GameObject plug;
     [SerializeField] private Sprite brokenSprite, regularSprite;
     [SerializeField] private SpriteRenderer spriteRenderer;
@@ -25,6 +27,7 @@ public class ResourceSystem : MonoBehaviour
         gainingPower = false;
         losingPower = true;
         isBroken = false;
+        allowPlay = true;
 
     }
     private void Update()
@@ -48,6 +51,29 @@ public class ResourceSystem : MonoBehaviour
         }
 
         fixMachine();
+        updateSound();
+    }
+
+    private void updateSound()
+    {
+        if (allowPlay)
+        {
+            if (resource == 10)
+            {
+                soundManager.clip = lowResource;
+                StartCoroutine(playSound());
+                allowPlay = false;
+            }
+        }
+    }
+
+    private IEnumerator playSound()
+    {
+        soundManager.Play(0);
+        yield return new WaitForSeconds(soundManager.clip.length);
+        soundManager.Stop();
+        soundManager.clip = null;
+        allowPlay = true;
     }
 
     //updates the percentage indicator in the UI

@@ -6,10 +6,10 @@ public class BatteryPhysics : MonoBehaviour
 {
     public Vector3 cordAnchorPos;
     private LineRenderer line;
-    public bool inOutletSpace;
-    [SerializeField] private AudioClip hittingSurface, pluggingIn, beginCharging;
-        [SerializeField] private AudioSource batteryPhysicsSounds;
-    [SerializeField] private GameObject curOutletParent, soundManager;
+    public bool inOutletSpace, allowPlay;
+    [SerializeField] private AudioClip hittingSurface, pluggingIn;
+    [SerializeField] private AudioSource soundManager;
+    [SerializeField] private GameObject curOutletParent;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +22,22 @@ public class BatteryPhysics : MonoBehaviour
         updateChord();
         tryBeginBatteryPlug();
         tryBeginBatteryLeave();
+    }
+
+    private void updateSound(AudioClip clip)
+    {
+        soundManager.clip = clip;
+        StartCoroutine(playSound());
+        allowPlay = false;
+    }
+
+    private IEnumerator playSound()
+    {
+        soundManager.Play(0);
+        yield return new WaitForSeconds(soundManager.clip.length);
+        soundManager.Stop();
+        soundManager.clip = null;
+        allowPlay = true;
     }
 
     /*
@@ -56,6 +72,7 @@ public class BatteryPhysics : MonoBehaviour
         {
             lockBatteryPos();
             connectToMachine();
+            updateSound(pluggingIn);
         }
     }
 

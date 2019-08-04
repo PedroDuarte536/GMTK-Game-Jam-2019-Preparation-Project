@@ -5,7 +5,10 @@ using UnityEngine;
 public class randomBreacking : MonoBehaviour
 {
     [SerializeField] private GameObject[] systems;
+    private bool allowPlay;
     [SerializeField] private float breakChance, timeBeforeStartBreaking, BreakChanceInterval;
+    [SerializeField] private AudioClip gasRelease, powerDown;
+    [SerializeField] private AudioSource soundManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +21,31 @@ public class randomBreacking : MonoBehaviour
         if (Random.value < breakChance && !selectedSystem.GetComponent<ResourceSystem>().getBroken())
         {
             selectedSystem.GetComponent<ResourceSystem>().setBreak(true);
-            print("broken");
-
+            if(Random.value < .5)
+            {
+                updateSound(gasRelease);
+            }
+            else
+            {
+                updateSound(powerDown);
+            }
         }
     }
+
+    private void updateSound(AudioClip clip)
+    {
+        soundManager.clip = clip;
+        StartCoroutine(playSound());
+        allowPlay = false;
+    }
+
+    private IEnumerator playSound()
+    {
+        soundManager.Play(0);
+        yield return new WaitForSeconds(soundManager.clip.length);
+        soundManager.Stop();
+        soundManager.clip = null;
+        allowPlay = true;
+    }
+
 }
