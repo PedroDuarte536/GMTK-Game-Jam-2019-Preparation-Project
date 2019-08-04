@@ -460,7 +460,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 301
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: a8f83b1d877ef5c4f8c1d1d0e4bdc447, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1501,7 +1501,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 301
   m_Sprite: {fileID: 21300000, guid: 0681f2ef315289145bb2b8c2db43b09c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -2746,6 +2746,7 @@ GameObject:
   - component: {fileID: 1711151873}
   - component: {fileID: 1711151872}
   - component: {fileID: 1711151871}
+  - component: {fileID: 1711151874}
   m_Layer: 0
   m_Name: Battery System
   m_TagString: Charging Station
@@ -2833,6 +2834,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1711151874
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711151870}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.33}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.28, y: 0.25}
+  m_EdgeRadius: 0
 --- !u!4 &1759437771 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2725432914366382141, guid: 51847ffc65b47ac4d930bf4e04f27e8c,
@@ -2945,7 +2972,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 301
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 9b574756d9755f243a4387b8d9017ae5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3265,7 +3292,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 301
   m_Sprite: {fileID: 21300000, guid: 0681f2ef315289145bb2b8c2db43b09c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
