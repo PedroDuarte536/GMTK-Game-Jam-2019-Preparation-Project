@@ -58,13 +58,28 @@ public class BatteryPhysics : MonoBehaviour
         }
     }
 
+    //ik the code isnt pretty, but it was assuming the parent had a ResourceSystem class and the charging station doesnt, so had to do this
     public void tryBeginBatteryLeave()
     {
-        if (curOutletParent != null && curOutletParent.GetComponent<ResourceSystem>().hasPlug() && this.GetComponent<MouseActions>().holdingPlug)
+        if (curOutletParent != null && this.GetComponent<MouseActions>().holdingPlug)
         {
-            unlockBatteryPos();
-            curOutletParent.GetComponent<ResourceSystem>().removePlug();
-            
+            switch (curOutletParent.gameObject.tag)
+            {
+                case "Resource Station":
+                    if (curOutletParent.GetComponent<ResourceSystem>().hasPlug())
+                    {
+                        unlockBatteryPos();
+                        curOutletParent.GetComponent<ResourceSystem>().removePlug();
+                    }
+                    break;
+                case "Charging Station":
+                    if (curOutletParent.GetComponent<BatteryRechargeSystem>().hasPlug())
+                    {
+                        unlockBatteryPos();
+                        curOutletParent.GetComponent<BatteryRechargeSystem>().removePlug();
+                    }
+                    break;
+            }
         }
     }
 
@@ -82,7 +97,15 @@ public class BatteryPhysics : MonoBehaviour
 
     private void connectToMachine()
     {
-        curOutletParent.GetComponent<ResourceSystem>().plugIn(this.gameObject);
+        switch (curOutletParent.gameObject.tag)
+        {
+            case "Resource Station":
+                curOutletParent.GetComponent<ResourceSystem>().plugIn(this.gameObject);
+                break;
+            case "Charging Station":
+                curOutletParent.GetComponent<BatteryRechargeSystem>().plugIn(this.gameObject);
+                break;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
