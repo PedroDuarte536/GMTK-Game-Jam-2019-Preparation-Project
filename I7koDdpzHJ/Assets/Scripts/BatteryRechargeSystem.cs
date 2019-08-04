@@ -13,9 +13,8 @@ public class BatteryRechargeSystem : MonoBehaviour
     public GameObject plug;
 
     //initializes pluginfo to the plugs script
-    public void plugIn(GameObject battery)
+    public void plugIn()
     {
-        plug = battery;
         plugInfo = plug.GetComponent<BatteryPowerInteractions>();
     }
 
