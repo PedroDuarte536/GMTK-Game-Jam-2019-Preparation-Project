@@ -10,8 +10,16 @@ public class Ship : MonoBehaviour
     private ResourceSystem oxygenInfo, batteryInfo, computerInfo, shieldInfo, engineInfo;
     //These variables will determine if the ship has the power or not
     public bool oxygenOn, engineOn, computerOn, shieldOn;
-
-
+    /*[SerializeField] private (double, double) startUp;
+    [SerializeField] private (double, double) endUp;
+    [SerializeField] private float moveTime, timeToMove;
+*/
+    public GameObject shipMovement;
+    
+    //time variables for the ship
+    public float minimumTime = 2f;
+    public float maximumTime = 3f;
+    public Transform target;
 
 
     // Start is called before the first frame update
@@ -23,6 +31,17 @@ public class Ship : MonoBehaviour
         shieldInfo = shieldSystem.GetComponent<ResourceSystem>();
         engineInfo = engineSystem.GetComponent<ResourceSystem>();
         showHealth();
+        /*startUp = (-5.374, 2.95);
+        endUp = (5.0, 2.95);
+        moveTime = 1;
+        timeToMove = 1;*/
+//        shipMovement = GameObject.Find("TrackerShip");
+        /*minimum = transform.position.x;
+        maximum = transform.position.x + 3;*/
+        transform.position = new Vector3(5,2,0);
+        
+        
+
     }
 
     // Update is called once per frame
@@ -30,6 +49,7 @@ public class Ship : MonoBehaviour
     {
         systemsPowered();
         showHealth();
+        moveShip();
     }
 
     /*
@@ -78,6 +98,32 @@ public class Ship : MonoBehaviour
     public void showHealth()
     {
 
+    }
+
+    /*
+     This function will move the ship on top of the screen
+     */
+    private void moveShip()
+    {
+        float step =  minimumTime * Time.deltaTime; // calculate distance to move
+        transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+
+        // Check if the position of the cube and sphere are approximately equal.
+        if (Vector3.Distance(transform.position, target.position) < 0.001f)
+        {
+            // Swap the position of the cylinder.
+            target.position *= -1.0f;
+        } 
+        //transform.position =new Vector3(Mathf.PingPong(Time.time*2,maximum-minimum)+minimum, transform.position.y, transform.position.z);
+        
+       /* moveTime -= Time.deltaTime;
+        if (moveTime > 0)
+        {
+            Vector2 distance = endUp - startUp;
+            float degree_of_movement = (timeToMove - moveTime) / timeToMove;
+            transform.position = new Vector2 (startUp.x + (distance.x * degree_of_movement), startUp.y + (distance.y * degree_of_movement));
+
+        }*/
     }
 
 
