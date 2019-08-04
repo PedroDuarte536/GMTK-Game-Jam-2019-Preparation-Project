@@ -18,6 +18,11 @@ public class BatteryRechargeSystem : MonoBehaviour
         plugInfo = plug.GetComponent<BatteryPowerInteractions>();
     }
 
+    public void removePlug()
+    {
+        plugInfo = null;
+    }
+
     // determines wheter the plug gameobject is attached
     public bool hasPlug()
     {

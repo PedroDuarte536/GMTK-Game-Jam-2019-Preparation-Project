@@ -59,11 +59,23 @@ public class BatteryPhysics : MonoBehaviour
 
     public void tryBeginBatteryLeave()
     {
-        if (curOutletParent != null && curOutletParent.GetComponent<ResourceSystem>().hasPlug() && this.GetComponent<MouseActions>().holdingPlug)
+        if (curOutletParent != null && curOutletParent.tag.Equals("Charging Station"))
         {
-            unlockBatteryPos();
-            curOutletParent.GetComponent<ResourceSystem>().removePlug();
-            
+            if (curOutletParent != null && curOutletParent.GetComponent<BatteryRechargeSystem>().hasPlug() && this.GetComponent<MouseActions>().holdingPlug)
+            {
+                unlockBatteryPos();
+                curOutletParent.GetComponent<BatteryRechargeSystem>().removePlug();
+
+            }
+        }
+        else
+        {
+            if (curOutletParent != null && curOutletParent.GetComponent<ResourceSystem>().hasPlug() && this.GetComponent<MouseActions>().holdingPlug)
+            {
+                unlockBatteryPos();
+                curOutletParent.GetComponent<ResourceSystem>().removePlug();
+
+            }
         }
     }
 
@@ -80,7 +92,17 @@ public class BatteryPhysics : MonoBehaviour
 
     private void connectToMachine()
     {
-        curOutletParent.GetComponent<ResourceSystem>().plugIn(this.gameObject);
+        if (curOutletParent.tag.Equals("Charging Station"))
+        {
+            curOutletParent.GetComponent<BatteryRechargeSystem>().plugIn();
+        }
+        else
+        {
+            curOutletParent.GetComponent<ResourceSystem>().plugIn(this.gameObject);
+        }
+        GetComponent<BatteryPowerInteractions>().connectedTo = curOutletParent;
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
