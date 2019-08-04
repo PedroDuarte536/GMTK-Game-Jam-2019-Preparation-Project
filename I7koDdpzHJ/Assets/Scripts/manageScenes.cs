@@ -32,7 +32,7 @@ public class manageScenes : MonoBehaviour
 
     private void checkEndGame()
     {
-        if(ship != null && ship.GetComponent<Ship>().shipHealth == 0)
+        if(ship != null && ship.GetComponent<Ship>().shipHealth <= 0)
         {
             SceneManager.LoadScene(3);
         }
