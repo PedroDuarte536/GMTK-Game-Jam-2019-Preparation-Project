@@ -177,7 +177,6 @@ public class ResourceSystem : MonoBehaviour
         {
             isBroken = true;
             updateSound(fixMachineSound);
-            print("printing");
             Invoke("setMachineFix", machineFixTime);
         }
     }
