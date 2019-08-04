@@ -48,6 +48,12 @@ public class MouseActions : MonoBehaviour
         {
             mouseRealeased = false;
         }
+
+        Vector2 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
+        if (screenPosition.y < -Screen.height / 2)
+        {
+            transform.position = new Vector3(-0.14f, -2.18f, 0);
+        }
     }
 
     private void setPointer()

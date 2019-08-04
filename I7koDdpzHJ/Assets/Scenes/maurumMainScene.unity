@@ -3460,6 +3460,7 @@ MonoBehaviour:
   cordAnchorPos: {x: 0, y: 0, z: 0.5}
   inOutletSpace: 0
   allowPlay: 0
+  pluggedIn: 0
   hittingSurface: {fileID: 0}
   pluggingIn: {fileID: 8300000, guid: 7c94b80f9b7eafc4abe80966a40cfc7f, type: 3}
   soundManager: {fileID: 1958985608}
