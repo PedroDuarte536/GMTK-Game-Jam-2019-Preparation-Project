@@ -6,8 +6,9 @@ public class BatteryPhysics : MonoBehaviour
 {
     public Vector3 cordAnchorPos;
     private LineRenderer line;
-    public bool inOutletSpace;
-    private GameObject curOutlet;
+    public bool inOutletSpace, allowPlay;
+    [SerializeField] private AudioClip hittingSurface, pluggingIn;
+    [SerializeField] private AudioSource soundManager;
     [SerializeField] private GameObject curOutletParent;
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,22 @@ public class BatteryPhysics : MonoBehaviour
         updateChord();
         tryBeginBatteryPlug();
         tryBeginBatteryLeave();
+    }
+
+    private void updateSound(AudioClip clip)
+    {
+        soundManager.clip = clip;
+        StartCoroutine(playSound());
+        allowPlay = false;
+    }
+
+    private IEnumerator playSound()
+    {
+        soundManager.Play(0);
+        yield return new WaitForSeconds(soundManager.clip.length);
+        soundManager.Stop();
+        soundManager.clip = null;
+        allowPlay = true;
     }
 
     /*
@@ -55,30 +72,28 @@ public class BatteryPhysics : MonoBehaviour
         {
             lockBatteryPos();
             connectToMachine();
+            updateSound(pluggingIn);
         }
     }
 
-    //ik the code isnt pretty, but it was assuming the parent had a ResourceSystem class and the charging station doesnt, so had to do this
     public void tryBeginBatteryLeave()
     {
-        if (curOutletParent != null && this.GetComponent<MouseActions>().holdingPlug)
+        if (curOutletParent != null && curOutletParent.tag.Equals("Charging Station"))
         {
-            switch (curOutletParent.gameObject.tag)
+            if (curOutletParent != null && curOutletParent.GetComponent<BatteryRechargeSystem>().hasPlug() && this.GetComponent<MouseActions>().holdingPlug)
             {
-                case "Resource Station":
-                    if (curOutletParent.GetComponent<ResourceSystem>().hasPlug())
-                    {
-                        unlockBatteryPos();
-                        curOutletParent.GetComponent<ResourceSystem>().removePlug();
-                    }
-                    break;
-                case "Charging Station":
-                    if (curOutletParent.GetComponent<BatteryRechargeSystem>().hasPlug())
-                    {
-                        unlockBatteryPos();
-                        curOutletParent.GetComponent<BatteryRechargeSystem>().removePlug();
-                    }
-                    break;
+                unlockBatteryPos();
+                curOutletParent.GetComponent<BatteryRechargeSystem>().removePlug();
+
+            }
+        }
+        else
+        {
+            if (curOutletParent != null && curOutletParent.GetComponent<ResourceSystem>().hasPlug() && this.GetComponent<MouseActions>().holdingPlug)
+            {
+                unlockBatteryPos();
+                curOutletParent.GetComponent<ResourceSystem>().removePlug();
+
             }
         }
     }
@@ -91,28 +106,28 @@ public class BatteryPhysics : MonoBehaviour
 
     private void lockBatteryPos()
     {
-        transform.position = curOutlet.GetComponent<Outlet>().pluggedPos;
         this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
     private void connectToMachine()
     {
-        switch (curOutletParent.gameObject.tag)
+        if (curOutletParent.tag.Equals("Charging Station"))
         {
-            case "Resource Station":
-                curOutletParent.GetComponent<ResourceSystem>().plugIn(this.gameObject);
-                break;
-            case "Charging Station":
-                curOutletParent.GetComponent<BatteryRechargeSystem>().plugIn(this.gameObject);
-                break;
+            curOutletParent.GetComponent<BatteryRechargeSystem>().plugIn();
         }
+        else
+        {
+            curOutletParent.GetComponent<ResourceSystem>().plugIn(this.gameObject);
+        }
+        GetComponent<BatteryPowerInteractions>().connectedTo = curOutletParent;
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Outlet"))
         {
-            curOutlet = collision.gameObject;
             inOutletSpace = true;
             curOutletParent = collision.transform.parent.gameObject;
         }
