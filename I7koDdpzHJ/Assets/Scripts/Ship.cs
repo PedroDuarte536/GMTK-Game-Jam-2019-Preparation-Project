@@ -1,11 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //This class handles the ship as it interacts with the game
 public class Ship : MonoBehaviour
 {
-    [SerializeField] private int shipHealth, lossIncrement;
+    [SerializeField] private float shipHealth, lossIncrement;
     [SerializeField] private GameObject oxygenSystem, batterySystem, computerSystem, shieldSystem, engineSystem;
     private ResourceSystem oxygenInfo, batteryInfo, computerInfo, shieldInfo, engineInfo;
     //These variables will determine if the ship has the power or not
@@ -15,21 +17,17 @@ public class Ship : MonoBehaviour
     [SerializeField] private float moveTime, timeToMove;
 
     public GameObject shipMovement;
+    public GameObject planet;
     
     //time variables for the ship
-    public float minimumTime = 2f;
-    public float maximumTime = 3f;
+    public float minimumTime = 100;
+    public float maximumTime = 1f;
     public Transform target;
-
-    //health display
-    PercentageDisplay healthDisplay;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        healthDisplay = GameObject.FindGameObjectWithTag("Health Bar").GetComponent<PercentageDisplay>();
-
         oxygenInfo = oxygenSystem.GetComponent<ResourceSystem>();
         batteryInfo = batterySystem.GetComponent<ResourceSystem>();
         computerInfo = computerSystem.GetComponent<ResourceSystem>();
@@ -39,11 +37,14 @@ public class Ship : MonoBehaviour
         startUp = (-5.374, 2.95);
         endUp = (5.0, 2.95);
         moveTime = 1;
+        minimumTime = (float) 0.05;
         timeToMove = 1;
         shipMovement = GameObject.Find("TrackerShip");
+        planet = GameObject.Find("planet");
         /*minimum = transform.position.x;
         maximum = transform.position.x + 3;*/
-
+        
+        
 
     }
 
@@ -100,7 +101,7 @@ public class Ship : MonoBehaviour
      */
     public void showHealth()
     {
-        healthDisplay.setPercentage(shipHealth);
+
     }
 
     /*
@@ -108,16 +109,38 @@ public class Ship : MonoBehaviour
      */
     private void moveShip()
     {
-        float step =  minimumTime * Time.deltaTime; // calculate distance to move
-        shipMovement.transform.position = Vector3.MoveTowards(shipMovement.transform.position, target.position, step);
 
-        // Check if the position of the cube and sphere are approximately equal.
-        if (Vector3.Distance(shipMovement.transform.position, target.position) < 0.001f)
+        Vector3 check = shipMovement.transform.position;
+        Vector3 end = planet.transform.position;
+        Debug.Log("Position 1: " + check);
+        Debug.Log("Position 2: " + end);
+        if (check.x < 5.00)
         {
-            // Swap the position of the cylinder.
-            target.position *= -1.0f;
-        } 
-        //transform.position =new Vector3(Mathf.PingPong(Time.time*2,maximum-minimum)+minimum, transform.position.y, transform.position.z);
+
+            float step = minimumTime * Time.deltaTime; // calculate distance to move
+            shipMovement.transform.position =
+                Vector3.MoveTowards(shipMovement.transform.position, target.position, step);
+
+            // Check if the position of the cube and sphere are approximately equal.
+            if (Vector3.Distance(shipMovement.transform.position, target.position) < 0.001f)
+            {
+                // Swap the position of the cylinder.
+                target.position *= -1.0f;
+            }
+        }
+        else
+        {
+            minimumTime = 0;
+            //shipMovement
+            SceneManager.LoadScene(2);
+        }
+
+
+    }
+
+    
+
+    //transform.position =new Vector3(Mathf.PingPong(Time.time*2,maximum-minimum)+minimum, transform.position.y, transform.position.z);
         
        /* moveTime -= Time.deltaTime;
         if (moveTime > 0)
@@ -130,8 +153,3 @@ public class Ship : MonoBehaviour
     }
 
 
-
-
-
-
-}
