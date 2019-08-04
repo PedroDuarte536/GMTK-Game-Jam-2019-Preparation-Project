@@ -365,6 +365,7 @@ GameObject:
   - component: {fileID: 176510880}
   - component: {fileID: 176510882}
   - component: {fileID: 176510881}
+  - component: {fileID: 176510883}
   m_Layer: 0
   m_Name: Shield System
   m_TagString: Resource Station
@@ -406,6 +407,7 @@ MonoBehaviour:
   lossRate: 1
   gainRate: 1
   startingResources: 50
+  machineFixTime: 0
   broken: 0
   gainingPower: 0
   losingPower: 0
@@ -465,6 +467,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &176510883
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176510879}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.3, y: 0.3}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.3}
+  m_EdgeRadius: 0
 --- !u!1001 &283609032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -690,6 +718,7 @@ GameObject:
   - component: {fileID: 507363137}
   - component: {fileID: 507363139}
   - component: {fileID: 507363138}
+  - component: {fileID: 507363140}
   m_Layer: 0
   m_Name: Computer System
   m_TagString: Resource Station
@@ -731,6 +760,7 @@ MonoBehaviour:
   lossRate: 1
   gainRate: 1
   startingResources: 50
+  machineFixTime: 0
   broken: 0
   gainingPower: 0
   losingPower: 0
@@ -790,6 +820,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &507363140
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507363136}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.3, y: 0.3}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.3}
+  m_EdgeRadius: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1027,7 +1083,9 @@ MonoBehaviour:
   - {fileID: 1826514157}
   - {fileID: 176510879}
   - {fileID: 507363136}
-  breakChance: 2
+  breakChance: 1
+  timeBeforeStartBreaking: 1
+  BreakChanceInterval: 5
 --- !u!1 &1115983333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1694,6 +1752,7 @@ GameObject:
   - component: {fileID: 1476691476}
   - component: {fileID: 1476691475}
   - component: {fileID: 1476691474}
+  - component: {fileID: 1476691477}
   m_Layer: 0
   m_Name: Oxygen System
   m_TagString: Resource Station
@@ -1719,6 +1778,7 @@ MonoBehaviour:
   lossRate: 1
   gainRate: 1
   startingResources: 50
+  machineFixTime: 0
   broken: 0
   gainingPower: 0
   losingPower: 0
@@ -1794,6 +1854,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1476691477
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476691473}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.3, y: 0.3}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.3}
+  m_EdgeRadius: 0
 --- !u!1 &1539855370
 GameObject:
   m_ObjectHideFlags: 0
@@ -2310,6 +2396,7 @@ GameObject:
   - component: {fileID: 1826514158}
   - component: {fileID: 1826514160}
   - component: {fileID: 1826514159}
+  - component: {fileID: 1826514161}
   m_Layer: 0
   m_Name: Engine System
   m_TagString: Resource Station
@@ -2351,6 +2438,7 @@ MonoBehaviour:
   lossRate: 1
   gainRate: 1
   startingResources: 50
+  machineFixTime: 0
   broken: 0
   gainingPower: 0
   losingPower: 0
@@ -2410,6 +2498,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1826514161
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826514157}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.3, y: 0.3}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 0.3}
+  m_EdgeRadius: 0
 --- !u!1 &1844802723
 GameObject:
   m_ObjectHideFlags: 0

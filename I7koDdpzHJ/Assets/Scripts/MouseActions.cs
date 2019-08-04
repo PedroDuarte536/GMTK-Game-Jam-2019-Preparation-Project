@@ -15,7 +15,7 @@ public class MouseActions : MonoBehaviour
     
     public bool mouseRealeased, holdingPlug;
     //This variable should be the position of the mouse throughout the game
-    [SerializeField] private Vector3 mousePos; 
+    public static Vector3 mousePos; 
     //This variable should be the position of the plug throughout the game
     [SerializeField] private Vector3 batteryPos;
     [SerializeField] private GameObject cursor, battery;

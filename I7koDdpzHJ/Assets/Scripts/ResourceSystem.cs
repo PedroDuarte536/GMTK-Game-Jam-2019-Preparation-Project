@@ -48,6 +48,7 @@ public class ResourceSystem : MonoBehaviour
         }
 
         fixMachine();
+        print(this.GetComponent<Collider2D>().bounds.Contains(MouseActions.mousePos));
     }
 
     //updates the percentage indicator in the UI
@@ -67,7 +68,6 @@ public class ResourceSystem : MonoBehaviour
         else
         {
             spriteRenderer.sprite = regularSprite;
-            isBroken = false;
         }
     }
 
@@ -142,7 +142,7 @@ public class ResourceSystem : MonoBehaviour
 
     private void fixMachine()
     {
-        if (!isBroken && broken && Input.GetMouseButtonDown(0) && this.GetComponent<Collider2D>().bounds.Contains(new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y)))
+        if (broken && Input.GetMouseButtonDown(0) && this.GetComponent<Collider2D>().bounds.Contains(MouseActions.mousePos))
         {
             isBroken = true;
             print("kinda working");
