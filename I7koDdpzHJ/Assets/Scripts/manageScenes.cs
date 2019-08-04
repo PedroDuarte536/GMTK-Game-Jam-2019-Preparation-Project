@@ -6,7 +6,7 @@ public class manageScenes : MonoBehaviour
 {
     private void Update()
     {
-        if(checkMouseClickPlay())
+        if(!SceneManager.GetActiveScene().name.Equals(SceneManager.GetSceneByBuildIndex(1).name) && checkMouseClickPlay())
         {
             SceneManager.LoadScene(1);
         }
