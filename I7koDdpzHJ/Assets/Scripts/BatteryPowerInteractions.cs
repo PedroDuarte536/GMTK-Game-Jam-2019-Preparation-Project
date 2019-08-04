@@ -6,15 +6,16 @@ public class BatteryPowerInteractions : MonoBehaviour
 {
     //Power is the amount of power in the battery currently, maxpower is the amount the battery can hold, powerRechargeAmount is the amount of power the battery passivly recives per interval, 
     //powerRechargeRate how often power is recived, powerTransferAmount how much power is given up to whatever it is plugged into, percentMaxStart the percent of the max that the battery starts with
-    [SerializeField] private int power, maxPower, powerRechargeAmount, powerRechargeRate, powerTransferAmount, percentMaxStart;
+    [SerializeField] private int power, maxPower, powerRechargeAmount, powerRechargeRate, powerTransferAmount, startAmount;
     //is the battery charging
     [SerializeField] private bool charging;
+    
     //whatever object the battery is connected to
     public GameObject connectedTo;
 
     private void Start()
     {
-        power = maxPower * percentMaxStart;
+        power = startAmount;
     }
 
     private void Update()

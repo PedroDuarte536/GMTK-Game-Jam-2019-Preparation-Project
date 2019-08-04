@@ -20,21 +20,21 @@ public class ResourceSystem : MonoBehaviour
 
     private void Start()
     {
-        resource = maxResources * startingResources;
+        resource = startingResources;
         updateIndicator();
         gainingPower = false;
-        losingPower = false;
+        losingPower = true;
     }
     private void Update()
     {
         //starts losing power when there is no plug
-        if(!hasPlug() && !losingPower)
+        if(!hasPlug() && losingPower)
         {
-            losingPower = true;
+            losingPower = false;
             Invoke("loseResources", lossRate);
         }
         //begins gaining power when there is a plug
-        else if(!gainingPower)
+        else if(!gainingPower && !broken)
         {
             gainingPower = true;
             Invoke("gainResources", gainRate);
@@ -42,7 +42,7 @@ public class ResourceSystem : MonoBehaviour
         //if the plug object is attached the plug script is initaliezed on plugInfo
         if(hasPlug())
         {
-            plugIn();
+            getScriptComponent();
         }
 
         setBreak(isBroken);
@@ -97,12 +97,12 @@ public class ResourceSystem : MonoBehaviour
         {
             resource = 0;
         }
-        losingPower = false;
+        losingPower = true;
         updateIndicator();
     }
 
     //initializes pluginfo to the plugs script
-    public void plugIn()
+    public void getScriptComponent()
     {
         plugInfo = plug.GetComponent<BatteryPowerInteractions>();
     }
@@ -111,6 +111,18 @@ public class ResourceSystem : MonoBehaviour
     public bool hasPlug()
     {
         return plug != null;
+    }
+
+    public void plugIn(GameObject battery)
+    {
+        plug = battery;
+    }
+
+    public void removePlug()
+    {
+        plug = null;
+        plugInfo = null;
+
     }
 
     public int getResources()

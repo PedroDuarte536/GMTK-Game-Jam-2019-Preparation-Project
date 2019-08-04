@@ -2,19 +2,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Object = System.Object;
 
 public class MouseActions : MonoBehaviour
 {
 
+    
     //this boolean will tell the system if the mouse is holding an object or not
     [SerializeField] private bool holdB;
-    public bool mouseRealeased;
+    [SerializeField] private bool attachedOxygen, attachedComputer, attachedEngine, attachedShield, attachedPower;
+    
+    public bool mouseRealeased, holdingPlug;
     //This variable should be the position of the mouse throughout the game
     [SerializeField] private Vector3 mousePos; 
     //This variable should be the position of the plug throughout the game
     [SerializeField] private Vector3 batteryPos;
     [SerializeField] private GameObject cursor, battery;
+    [SerializeField] private GameObject oxygen, computer, shield, engine, recharge, outlet;
+    
  
  
     // Start is called before the first frame update
@@ -22,6 +28,12 @@ public class MouseActions : MonoBehaviour
     {
         //getMousePosition();
         Cursor.visible = false;
+        //the variables to attach the plug to the terminals
+        attachedOxygen = false;
+        attachedComputer = false;
+        attachedEngine = false;
+        attachedShield = false;
+        attachedPower = false;
     }
 
     // Update is called once per frame
@@ -31,6 +43,7 @@ public class MouseActions : MonoBehaviour
         getHeldObject();
         heldBattery();
         setPointer();
+
         if(Input.GetMouseButtonDown(0))
         {
             mouseRealeased = false;
@@ -73,12 +86,20 @@ public class MouseActions : MonoBehaviour
             holdB = true;
             GetComponent<Rigidbody2D>().position = mousePos;
             GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            holdingPlug = true;
         }
         if(Input.GetMouseButtonUp(0))
         {
             mouseRealeased = true;
             holdB = false;
+            //updating the plug's position
+            Vector3 newBatteryPos = new Vector3(mousePos.x,mousePos.y,0 );
+            battery.transform.position = newBatteryPos;
+            holdingPlug = false;
+
+
+
+
         }
     }
-
 }

@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Charging Station
   - Resource Station
+  - Plug
+  - Outlet
+  - Tracker Ship
   layers:
   - Default
   - TransparentFX

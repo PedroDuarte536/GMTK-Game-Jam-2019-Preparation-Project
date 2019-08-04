@@ -35,4 +35,6 @@ public class PercentageDisplay : MonoBehaviour
         else
             percentage = p;
     }
+
+
 }
