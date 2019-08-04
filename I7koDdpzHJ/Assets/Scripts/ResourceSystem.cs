@@ -48,7 +48,6 @@ public class ResourceSystem : MonoBehaviour
         }
 
         fixMachine();
-        print(this.GetComponent<Collider2D>().bounds.Contains(MouseActions.mousePos));
     }
 
     //updates the percentage indicator in the UI
@@ -145,7 +144,6 @@ public class ResourceSystem : MonoBehaviour
         if (broken && Input.GetMouseButtonDown(0) && this.GetComponent<Collider2D>().bounds.Contains(MouseActions.mousePos))
         {
             isBroken = true;
-            print("kinda working");
             Invoke("setMachineFix", machineFixTime);
         }
     }
